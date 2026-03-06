@@ -1,0 +1,1688 @@
+"use client"
+
+import { useCallback, useEffect, useRef, useState } from 'react'
+import 'mapbox-gl/dist/mapbox-gl.css'
+import { Card } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Badge } from '@/components/ui/badge'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Navigation, Upload, Route, Crosshair, ListChecks, Plus, MapPin, Calendar, Clock, Thermometer, Activity, Shield } from 'lucide-react'
+import mapboxgl, { Map as MapboxMap, Marker, LngLatLike, GeoJSONSource } from 'mapbox-gl'
+import { cn } from '@/lib/utils'
+import { useToast } from '@/hooks/use-toast'
+import { useSession } from '@/lib/session-context'
+import { useLocation } from '@/lib/location-context'
+import { ApiClient } from '@/lib/api-client'
+import { SafetyHeatmap } from './safety-heatmap'
+
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || 'pk.eyJ1IjoibWFoYWQxNjA0IiwiYSI6ImNtY3A2OWlpaTAydXQybHIyYjJvejhqemQifQ.2y3ZmPe5lRXfqns5zlG7hA'
+
+// Default center — Kolkata (covered by SafetyScore API)
+const CSV_CENTER_POINT: Coords = { lat: 22.5726, lng: 88.3639 }
+
+interface MapProps { className?: string }
+
+type Coords = { lat: number; lng: number }
+
+interface TripActivity {
+  id: string
+  title: string
+  location: string
+  time: string
+  type: "hotel" | "attraction" | "restaurant" | "transport" | "other"
+  description?: string
+  duration?: string
+}
+
+interface TripDay {
+  date: string
+  destinations: string[]
+  activities: TripActivity[]
+}
+
+interface Trip {
+  _id: string
+  title: string
+  destination: string
+  startDate: string
+  endDate: string
+  status: 'active' | 'upcoming' | 'past'
+  itinerary?: TripDay[]  // Legacy property name
+  days?: TripDay[]       // Current property name
+  userEmail: string
+  createdAt: string
+}
+
+interface TodayDestination {
+  name: string
+  activity: TripActivity
+  coords?: Coords
+}
+
+export function InteractiveMap({ className }: MapProps) {
+  const { toast } = useToast()
+  const { user, isAuthenticated } = useSession()
+  const { 
+    currentLocation, 
+    updateLocation, 
+    safetyData: currentLocationSafety, 
+    setSafetyData: setCurrentLocationSafety,
+    isCalculatingSafety,
+    setIsCalculatingSafety 
+  } = useLocation()
+  
+  const mapRef = useRef<MapboxMap | null>(null)
+  const mapContainerRef = useRef<HTMLDivElement | null>(null)
+  const userMarkerRef = useRef<Marker | null>(null)
+  const destinationMarkersRef = useRef<Marker[]>([])
+  const [watchId, setWatchId] = useState<number | null>(null)
+  const [hasShownTrackingToast, setHasShownTrackingToast] = useState(false)
+  const [todayDestinations, setTodayDestinations] = useState<TodayDestination[]>([])
+  const [selectedDestination, setSelectedDestination] = useState<TodayDestination | null>(null)
+  const [isLoadingTrips, setIsLoadingTrips] = useState(false)
+  const [parsedDestinations, setParsedDestinations] = useState<string[]>([])
+  const [destCoords, setDestCoords] = useState<Coords[]>([])
+  const [profile, setProfile] = useState<'driving' | 'walking' | 'cycling'>('driving')
+  const [rawText, setRawText] = useState('')
+  const [isParsing, setIsParsing] = useState(false)
+  const [isRouting, setIsRouting] = useState(false)
+  const [routes, setRoutes] = useState<any[]>([])
+  const [selectedRouteIdx, setSelectedRouteIdx] = useState<number | null>(null)
+  const [autoCenter, setAutoCenter] = useState(true)
+  const [routeSafetyScores, setRouteSafetyScores] = useState<any[]>([])
+  const [showSafetyDetails, setShowSafetyDetails] = useState(false)
+  const [activeTab, setActiveTab] = useState('today')
+
+  // Helper function to parse various date formats and normalize them to M/D/YYYY
+  const parseDateString = (dateStr: string): string | null => {
+    if (!dateStr) return null
+    
+    try {
+      // Handle format like "Day 3 - 9/13/2025"
+      if (dateStr.includes(' - ')) {
+        const datePart = dateStr.split(' - ')[1]?.trim()
+        if (datePart) {
+          return normalizeDateFormat(datePart)
+        }
+      }
+      
+      // Handle direct date formats
+      return normalizeDateFormat(dateStr)
+    } catch (error) {
+      console.warn('Error parsing date:', dateStr, error)
+      return null
+    }
+  }
+
+  // Normalize different date formats to M/D/YYYY
+  const normalizeDateFormat = (dateStr: string): string | null => {
+    if (!dateStr) return null
+    
+    // Already in M/D/YYYY or MM/DD/YYYY format
+    if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateStr)) {
+      return dateStr
+    }
+    
+    // ISO format (YYYY-MM-DD)
+    if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+      const [year, month, day] = dateStr.split('-')
+      return `${parseInt(month)}/${parseInt(day)}/${year}`
+    }
+    
+    // Try parsing as a general date and converting
+    try {
+      const parsed = new Date(dateStr)
+      if (!isNaN(parsed.getTime())) {
+        return `${parsed.getMonth() + 1}/${parsed.getDate()}/${parsed.getFullYear()}`
+      }
+    } catch (error) {
+      console.warn('Could not parse date as Date object:', dateStr)
+    }
+    
+    return null
+  }
+
+  // Helper function to check if two dates match (handles different formats)
+  const datesMatch = (date1: string, date2: string): boolean => {
+    const normalized1 = parseDateString(date1)
+    const normalized2 = parseDateString(date2)
+    
+    if (!normalized1 || !normalized2) return false
+    
+    return normalized1 === normalized2
+  }
+
+  // Function to calculate safety scores for location or route
+  // Stable ref so fetchTodayDestinations never causes the map-init effect to re-run
+  const fetchTodayDestinationsRef = useRef<(() => Promise<void>) | null>(null)
+
+  const calculateSafetyScores = useCallback(async (coordinates?: Coords, routeCoordinates?: Coords[]) => {
+    if (!coordinates && !routeCoordinates) return null
+    
+    console.log('Calculating safety for:', { coordinates, routeCoordinates })
+    
+    setIsCalculatingSafety(true)
+    try {
+      const response = await fetch('/api/safety/calculate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          coordinates, 
+          routeCoordinates 
+        })
+      })
+
+      if (response.ok) {
+        const safetyData = await response.json()
+        console.log('Safety data received:', safetyData)
+        return safetyData
+      } else {
+        const errorText = await response.text()
+        console.error('Failed to calculate safety scores:', response.status, errorText)
+        return null
+      }
+    } catch (error) {
+      console.error('Error calculating safety scores:', error)
+      return null
+    } finally {
+      setIsCalculatingSafety(false)
+    }
+  }, [])
+
+  // Fetch today's destinations from active trips
+  const fetchTodayDestinations = useCallback(async () => {
+    if (!isAuthenticated || !user) return
+
+    setIsLoadingTrips(true)
+    try {
+      const response = await ApiClient.get('/api/trips')
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch trips')
+      }
+
+      const data = await response.json()
+      const activeTrips = data.trips?.active || []
+
+      // Get today's date in M/D/YYYY format to match the itinerary format
+      const today = new Date()
+      const todayStr = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`
+      
+      console.log('Looking for today\'s date:', todayStr)
+      
+      const todayActivities: TripActivity[] = []
+
+      // Look through active trips for today's activities
+      activeTrips.forEach((trip: Trip) => {
+        // Check both itinerary and days properties for compatibility
+        const tripDays = trip.itinerary || trip.days || []
+        
+        tripDays.forEach((day: TripDay) => {
+          console.log('Checking day:', day.date)
+          
+          // Use robust date matching
+          if (day.date && datesMatch(day.date, todayStr) && day.activities) {
+            console.log('Found matching day for today:', day.date)
+            day.activities.forEach((activity: TripActivity) => {
+              if (activity.location || activity.title) {
+                console.log('Found today\'s activity:', activity.title, 'at', activity.location)
+                todayActivities.push(activity)
+              }
+            })
+          }
+        })
+      })
+
+      console.log('Total activities found for today:', todayActivities.length)
+
+      if (todayActivities.length > 0) {
+        toast({
+          title: `📍 Found ${todayActivities.length} activit${todayActivities.length === 1 ? 'y' : 'ies'}`,
+          description: `Processing today's itinerary with AI...`,
+          duration: 3000
+        })
+
+        // Use OpenAI to intelligently extract destinations
+        await extractAndGeocodeTodayDestinations(todayActivities)
+      } else {
+        toast({
+          title: '📅 No activities for today',
+          description: `No activities scheduled for ${todayStr} in your active trips.`,
+          duration: 3000
+        })
+        setTodayDestinations([])
+      }
+
+    } catch (error) {
+      console.error('Error fetching today\'s destinations:', error)
+      toast({
+        title: '❌ Failed to load destinations',
+        description: 'Unable to fetch today\'s itinerary. Please try again.',
+        variant: 'destructive',
+        duration: 5000
+      })
+    } finally {
+      setIsLoadingTrips(false)
+    }
+  }, [isAuthenticated, user])
+
+  // Keep ref in sync so map-init effect can call the latest version without depending on it
+  useEffect(() => {
+    fetchTodayDestinationsRef.current = fetchTodayDestinations
+  })
+
+  // Enhanced extraction and geocoding with OpenAI
+  const extractAndGeocodeTodayDestinations = async (activities: TripActivity[]) => {
+    try {
+      // Use OpenAI to extract and enhance destination names
+      const extractResponse = await fetch('/api/destinations/extract', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ activities })
+      })
+
+      if (!extractResponse.ok) {
+        throw new Error('Failed to extract destinations')
+      }
+
+      const extractData = await extractResponse.json()
+      const extractedDestinations = extractData.destinations || []
+
+      if (extractedDestinations.length === 0) {
+        toast({
+          title: '❌ No destinations found',
+          description: 'Could not extract locations from today\'s activities.',
+          variant: 'destructive',
+          duration: 4000
+        })
+        return
+      }
+
+      toast({
+        title: '🤖 AI extraction complete',
+        description: `Extracted ${extractedDestinations.length} location${extractedDestinations.length === 1 ? '' : 's'}, now finding coordinates...`,
+        duration: 3000
+      })
+
+      // Geocode the extracted destinations
+      const geocodedDestinations: TodayDestination[] = []
+
+      for (const dest of extractedDestinations) {
+        try {
+          const response = await fetch('/api/geocode', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ q: dest.extractedLocation })
+          })
+
+          const coords = await response.json()
+          if (coords?.lat && coords?.lng) {
+            geocodedDestinations.push({
+              name: dest.name,
+              activity: dest.originalActivity,
+              coords: { lat: coords.lat, lng: coords.lng }
+            })
+          } else {
+            // Still add destination even without coordinates
+            geocodedDestinations.push({
+              name: dest.name,
+              activity: dest.originalActivity
+            })
+          }
+        } catch (error) {
+          console.error(`Failed to geocode ${dest.name}:`, error)
+          // Add destination without coordinates as fallback
+          geocodedDestinations.push({
+            name: dest.name,
+            activity: dest.originalActivity
+          })
+        }
+      }
+
+      setTodayDestinations(geocodedDestinations)
+
+      const geocodedCount = geocodedDestinations.filter(d => d.coords).length
+      toast({
+        title: `✅ Today's destinations ready`,
+        description: `${geocodedCount}/${geocodedDestinations.length} locations mapped successfully`,
+        duration: 4000
+      })
+
+      // Add markers for destinations with coordinates
+      addDestinationMarkers(geocodedDestinations.filter(d => d.coords))
+
+    } catch (error) {
+      console.error('Error extracting destinations:', error)
+      toast({
+        title: '❌ Extraction failed',
+        description: 'Falling back to basic location parsing...',
+        variant: 'destructive',
+        duration: 4000
+      })
+
+      // Fallback to basic parsing
+      const basicDestinations: TodayDestination[] = activities.map(activity => ({
+        name: activity.location || activity.title,
+        activity: activity
+      })).filter(dest => dest.name && dest.name.trim().length > 0)
+
+      setTodayDestinations(basicDestinations)
+      await geocodeTodayDestinations(basicDestinations)
+    }
+  }
+
+  // Geocode today's destinations
+  const geocodeTodayDestinations = async (destinations: TodayDestination[]) => {
+    const updatedDestinations: TodayDestination[] = []
+
+    for (const dest of destinations) {
+      try {
+        const response = await fetch('/api/geocode', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ q: dest.name })
+        })
+
+        const coords = await response.json()
+        if (coords?.lat && coords?.lng) {
+          updatedDestinations.push({
+            ...dest,
+            coords: { lat: coords.lat, lng: coords.lng }
+          })
+        } else {
+          updatedDestinations.push(dest)
+        }
+      } catch (error) {
+        console.error(`Failed to geocode ${dest.name}:`, error)
+        updatedDestinations.push(dest)
+      }
+    }
+
+    setTodayDestinations(updatedDestinations)
+    
+    // Add markers for destinations with coordinates
+    addDestinationMarkers(updatedDestinations.filter(d => d.coords))
+  }
+
+  // Add markers for today's destinations
+  const addDestinationMarkers = (destinations: TodayDestination[]) => {
+    const map = mapRef.current
+    if (!map) return
+
+    // Clear existing destination markers
+    destinationMarkersRef.current.forEach(marker => marker.remove())
+    destinationMarkersRef.current = []
+
+    // Add new markers
+    destinations.forEach((dest, index) => {
+      if (dest.coords) {
+        const el = document.createElement('div')
+        el.className = 'destination-marker'
+        el.style.cssText = `
+          background-color: #3b82f6;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          border: 2px solid white;
+          cursor: pointer;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 10px;
+          font-weight: bold;
+        `
+        el.textContent = (index + 1).toString()
+
+        const marker = new mapboxgl.Marker(el)
+          .setLngLat([dest.coords.lng, dest.coords.lat])
+          .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(`${dest.activity.time} - ${dest.name}`))
+          .addTo(map)
+
+        // Add click handler for routing
+        el.addEventListener('click', () => {
+          setSelectedDestination(dest)
+          if (dest.coords) {
+            drawRouteToDestination(dest.coords)
+          }
+        })
+
+        destinationMarkersRef.current.push(marker)
+      }
+    })
+
+    // Fit bounds to show all destinations
+    if (destinations.length > 0) {
+      const coordinates = destinations
+        .filter(d => d.coords)
+        .map(d => [d.coords!.lng, d.coords!.lat] as [number, number])
+      
+      if (coordinates.length > 0) {
+        coordinates.push([currentLocation.lng, currentLocation.lat])
+        const bounds = new mapboxgl.LngLatBounds()
+        coordinates.forEach(coord => bounds.extend(coord))
+        map.fitBounds(bounds, { padding: 50, maxZoom: 14 })
+      }
+    }
+  }
+
+  // Draw route to a specific destination using Google Directions API
+  const drawRouteToDestination = async (destination: Coords) => {
+    const map = mapRef.current
+    if (!map) return
+
+    setIsRouting(true)
+    setRouteSafetyScores([]) // clear stale scores from previous route
+    toast({
+      title: '🛣️ Calculating routes...',
+      description: `Finding multiple ${profile} routes to your destination`,
+      duration: 2000
+    })
+
+    try {
+      // Use Google Directions API
+      const requestBody = { 
+        coords: [currentLocation, destination], 
+        profile,
+        alternatives: true
+      }
+
+      const response = await fetch('/api/directions/google', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestBody)
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to calculate route')
+      }
+
+      const data = await response.json()
+      
+      // Handle case when no routes found
+      if (data.status === 'ZERO_RESULTS' || data.routes?.length === 0) {
+        toast({
+          title: '🚫 No routes found',
+          description: 'Unable to find routes to the destination. Try choosing different locations.',
+          variant: 'destructive',
+          duration: 6000
+        })
+        setIsRouting(false)
+        return
+      }
+
+      const routes = Array.isArray(data?.routes) ? data.routes.slice(0, 3) : []
+      setRoutes(routes)
+      setSelectedRouteIdx(0)
+
+      if (routes.length > 0) {
+        // Clear previous routes
+        for (let i = 0; i < 3; i++) {
+          const src = map.getSource(`route-${i}`) as GeoJSONSource
+          src?.setData({ type: 'FeatureCollection', features: [] } as any)
+        }
+
+        // Draw all routes with coordinate format
+        routes.forEach((route: any, i: number) => {
+          const geometry = {
+            type: 'LineString',
+            coordinates: route.coordinates
+          }
+          const feature = { type: 'Feature', geometry, properties: {} }
+          const src = map.getSource(`route-${i}`) as GeoJSONSource
+          src?.setData(feature as any)
+        })
+
+        // Highlight the first route
+        highlightRoute(0)
+
+        const distance = (routes[0].distance / 1000).toFixed(1)
+        const duration = Math.round(routes[0].duration / 60)
+        
+        // Determine route service message
+        let routeServiceMessage = "(via Google Maps)"
+        if (data.source === 'osrm_fallback') {
+          routeServiceMessage = "(via OSRM fallback)"
+        } else if (data.source === 'google') {
+          routeServiceMessage = "(via Google Maps)"
+        }
+        
+        toast({
+          title: `🎯 ${routes.length} route${routes.length === 1 ? '' : 's'} found!`,
+          description: `Best route: ${distance} km, ${duration} min via ${profile} ${routeServiceMessage}. ${routes.length > 1 ? 'Multiple options available!' : ''}`,
+          duration: 4000
+        })
+
+        // Fit to route bounds using OSRM coordinates
+        const coordinates = routes[0].coordinates
+        const bounds = new mapboxgl.LngLatBounds()
+        coordinates.forEach((coord: [number, number]) => bounds.extend(coord))
+        map.fitBounds(bounds, { padding: 80, maxZoom: 14 })
+
+        // Calculate safety scores for the route
+        const routeCoords = routes.map((route: any) => {
+          const coords = route.coordinates || []
+          return coords.filter((_: any, index: number) => index % 10 === 0).map((coord: number[]) => ({
+            lat: coord[1],
+            lng: coord[0]
+          }))
+        }).filter((coords: any) => coords.length > 0)
+
+        if (routeCoords.length > 0) {
+          try {
+            const safetyPromises = routeCoords.map((coords: Coords[]) => 
+              calculateSafetyScores(undefined, coords)
+            )
+            const safetyResults = await Promise.all(safetyPromises)
+            const routeSafetyData = safetyResults.map((result, index) => ({
+              routeIndex: index,
+              safety: result?.routeSafety || null,
+              route: routes[index]
+            }))
+            setRouteSafetyScores(routeSafetyData)
+          } catch (error) {
+            console.error('Failed to calculate route safety scores:', error)
+          }
+        }
+      }
+
+    } catch (error) {
+      console.error('Error calculating route:', error)
+      toast({
+        title: '❌ Route calculation failed',
+        description: 'Unable to calculate route. Please try again.',
+        variant: 'destructive',
+        duration: 5000
+      })
+    } finally {
+      setIsRouting(false)
+    }
+  }
+
+  // Init map — runs ONCE, never depends on callbacks/state that change every render
+  useEffect(() => {
+    if (mapRef.current || !mapContainerRef.current) return
+    const map = new mapboxgl.Map({
+      container: mapContainerRef.current,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [currentLocation.lng, currentLocation.lat],
+      zoom: 12,
+    })
+    mapRef.current = map
+
+    map.on('load', () => {
+      // Route source/layer
+      if (!map.getSource('route-0')) {
+        // create 3 layers for up to 3 alternatives with different colors and z-index
+        const colors = ['#10b981', '#3b82f6', '#f59e0b']
+        colors.forEach((color, i) => {
+          const srcId = `route-${i}`
+          const layerId = `route-line-${i}`
+          map.addSource(srcId, { type: 'geojson', data: { type: 'FeatureCollection', features: [] } })
+          map.addLayer({
+            id: layerId,
+            type: 'line',
+            source: srcId,
+            paint: {
+              'line-color': color,
+              'line-width': 4,
+              'line-opacity': i === selectedRouteIdx ? 0.95 : 0.6,
+            },
+            layout: { 'line-cap': 'round', 'line-join': 'round' },
+          })
+        })
+      }
+
+      // User marker
+      userMarkerRef.current = new mapboxgl.Marker({ color: '#10b981' })
+        .setLngLat([currentLocation.lng, currentLocation.lat])
+        .addTo(map)
+
+      // Auto-start location tracking
+      if (autoCenter) {
+        startLiveLocation()
+      }
+
+      // Fetch today's destinations via stable ref (won't retrigger this effect)
+      fetchTodayDestinationsRef.current?.()
+    })
+
+    return () => {
+      map.remove()
+      mapRef.current = null
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) // ← intentionally empty: map must only be created once
+
+  // Re-fetch destinations when auth state changes (without rebuilding the map)
+  useEffect(() => {
+    if (isAuthenticated && mapRef.current) {
+      fetchTodayDestinationsRef.current?.()
+    }
+  }, [isAuthenticated])
+
+  // Update marker when location changes
+  useEffect(() => {
+    if (mapRef.current && userMarkerRef.current) {
+      userMarkerRef.current.setLngLat([currentLocation.lng, currentLocation.lat])
+      
+      // Auto-center on location update if enabled
+      if (autoCenter && watchId) {
+        mapRef.current.easeTo({ 
+          center: [currentLocation.lng, currentLocation.lat], 
+          zoom: 15,
+          duration: 1000
+        })
+      }
+    }
+  }, [currentLocation, autoCenter, watchId])
+
+  // Calculate safety scores for current location
+  // Only re-run when location changes by >80 m to avoid hammering the API on every GPS tick
+  const lastSafetyCoords = useRef<Coords | null>(null)
+  useEffect(() => {
+    const prev = lastSafetyCoords.current
+    if (prev) {
+      const dLat = (currentLocation.lat - prev.lat) * 111000
+      const dLng = (currentLocation.lng - prev.lng) * 111000 * Math.cos(currentLocation.lat * Math.PI / 180)
+      const distM = Math.sqrt(dLat * dLat + dLng * dLng)
+      if (distM < 80) return
+    }
+    lastSafetyCoords.current = currentLocation
+    const updateLocationSafety = async () => {
+      const safetyData = await calculateSafetyScores(currentLocation)
+      if (safetyData?.location) {
+        setCurrentLocationSafety(safetyData.location)
+      }
+    }
+    updateLocationSafety()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentLocation])
+
+  const centerOnUser = useCallback(() => {
+    if (mapRef.current) {
+      mapRef.current.easeTo({ center: [currentLocation.lng, currentLocation.lat], zoom: 14 })
+      toast({ 
+        title: '🎯 Centered on your location', 
+        description: `Latitude: ${currentLocation.lat.toFixed(6)}, Longitude: ${currentLocation.lng.toFixed(6)}`,
+        duration: 3000
+      })
+    }
+  }, [currentLocation])
+
+  // Live location
+  const startLiveLocation = () => {
+    if (!navigator.geolocation) {
+      toast({ 
+        title: '❌ Geolocation not supported', 
+        description: 'Your device does not support location tracking.', 
+        variant: 'destructive',
+        duration: 5000
+      })
+      return
+    }
+    
+    toast({ 
+      title: '📍 Starting live tracking...', 
+      description: 'Accessing your location for real-time updates',
+      duration: 2000
+    })
+    
+    const id = navigator.geolocation.watchPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords
+        updateLocation({ lat: latitude, lng: longitude })
+        if (!hasShownTrackingToast) {
+          setHasShownTrackingToast(true)
+          toast({ 
+            title: '✅ Live tracking active', 
+            description: 'Your location is now being tracked in real-time',
+            duration: 3000
+          })
+        }
+      },
+      (error) => {
+        toast({ 
+          title: '❌ Location access denied', 
+          description: 'Please enable location permissions in your browser settings.', 
+          variant: 'destructive',
+          duration: 5000
+        })
+      },
+      { enableHighAccuracy: true, maximumAge: 5000, timeout: 10000 }
+    )
+    setWatchId(id)
+  }
+
+  const stopLiveLocation = () => {
+    if (watchId && navigator.geolocation) {
+      navigator.geolocation.clearWatch(watchId)
+      setWatchId(null)
+      setHasShownTrackingToast(false) // Reset toast state
+      toast({ 
+        title: '⏹️ Live tracking stopped', 
+        description: 'Location tracking has been disabled for privacy.',
+        duration: 3000
+      })
+    }
+  }
+
+  // Parse itinerary text via API
+  const parseItinerary = async (text: string) => {
+    setIsParsing(true)
+    try {
+      const res = await fetch('/api/itinerary/parse', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+      })
+      const data = await res.json()
+      setParsedDestinations(data.destinations || [])
+      if ((data.destinations || []).length) {
+        toast({ 
+          title: '✅ Itinerary parsed successfully', 
+          description: `Found ${data.destinations.length} destination${data.destinations.length === 1 ? '' : 's'}: ${data.destinations.slice(0, 3).join(', ')}${data.destinations.length > 3 ? '...' : ''}`,
+          duration: 4000
+        })
+      } else {
+        toast({ 
+          title: '❌ No destinations found', 
+          description: 'Try adding locations like "Paris, London, Rome" or upload a file with destinations.', 
+          variant: 'destructive' as any,
+          duration: 5000
+        })
+      }
+    } catch (error) {
+      toast({ 
+        title: '❌ Parsing failed', 
+        description: 'Unable to parse itinerary. Please check your connection and try again.', 
+        variant: 'destructive' as any,
+        duration: 5000
+      })
+    } finally {
+      setIsParsing(false)
+    }
+  }
+
+  // Geocode destinations via API (OpenCage)
+  const geocodeAll = async (names: string[]) => {
+    const coords: Coords[] = []
+    const failed: string[] = []
+    
+    toast({ 
+      title: '🔍 Finding locations...', 
+      description: `Searching for ${names.length} destination${names.length === 1 ? '' : 's'}`,
+      duration: 2000
+    })
+    
+    for (const n of names) {
+      try {
+        const res = await fetch('/api/geocode', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ q: n }),
+        })
+        const g = await res.json()
+        if (g?.lat && g?.lng) {
+          coords.push({ lat: g.lat, lng: g.lng })
+        } else {
+          failed.push(n)
+        }
+      } catch {
+        failed.push(n)
+      }
+    }
+    
+    setDestCoords(coords)
+    
+    if (coords.length > 0) {
+      toast({ 
+        title: `📍 ${coords.length} location${coords.length === 1 ? '' : 's'} found`, 
+        description: failed.length > 0 ? `Unable to find: ${failed.join(', ')}` : 'All destinations located successfully!',
+        duration: 4000
+      })
+    } else {
+      toast({ 
+        title: '❌ No locations found', 
+        description: 'Unable to find any of the specified destinations. Try using more specific names.', 
+        variant: 'destructive' as any,
+        duration: 5000
+      })
+    }
+    
+    return coords
+  }
+
+  const fitToBounds = (points: Coords[]) => {
+    const map = mapRef.current
+    if (!map || !points.length) return
+    const bounds = new mapboxgl.LngLatBounds()
+    points.forEach((p) => bounds.extend([p.lng, p.lat]))
+    map.fitBounds(bounds, { padding: 50, maxZoom: 14 })
+  }
+
+  const highlightRoute = (i: number) => {
+    const map = mapRef.current
+    if (!map) return
+    for (let j = 0; j < 3; j++) {
+      const id = `route-line-${j}`
+      if (map.getLayer(id)) {
+        map.setPaintProperty(id, 'line-opacity', j === i ? 0.95 : 0.5)
+        map.setPaintProperty(id, 'line-width', j === i ? 6 : 3)
+      }
+    }
+  }
+
+  // Request route with optional country restrictions
+  const drawRoute = async (points: Coords[]) => {
+    const map = mapRef.current
+    if (!map || points.length === 0) {
+      toast({ 
+        title: '❌ Cannot create route', 
+        description: 'Need at least 1 destination to create a route.', 
+        variant: 'destructive' as any,
+        duration: 4000
+      })
+      return
+    }
+    
+    // If only one destination, show route from current location to that destination
+    const routePoints = points.length === 1 ? [currentLocation, ...points] : points
+    
+    setIsRouting(true)
+    toast({ 
+      title: '🛣️ Calculating routes...', 
+      description: `Finding the best ${profile} routes${points.length === 1 ? ' to your destination' : ` between ${points.length} destinations`}`,
+      duration: 2000
+    })
+    
+    try {
+      // Use Google Directions API
+      const requestBody = { 
+        coords: routePoints, 
+        profile,
+        alternatives: true
+      }
+
+      const res = await fetch('/api/directions/google', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestBody),
+      })
+      if (!res.ok) {
+        const t = await res.text()
+        toast({ 
+          title: '❌ Routing failed', 
+          description: t || 'Unable to calculate directions. Please try again.', 
+          variant: 'destructive' as any,
+          duration: 5000
+        })
+        return
+      }
+      const data = await res.json()
+      
+      // Handle case when no routes found
+      if (data.status === 'ZERO_RESULTS' || data.routes?.length === 0) {
+        toast({
+          title: '🚫 No routes found',
+          description: 'Unable to find routes between the destinations. Try choosing different locations.',
+          variant: 'destructive',
+          duration: 6000
+        })
+        setIsRouting(false)
+        return
+      }
+
+      const routes = Array.isArray(data?.routes) ? data.routes.slice(0, 3) : []
+      setRoutes(routes)
+      setSelectedRouteIdx(0)
+      
+      // draw up to 3 alternatives using coordinate format
+      routes.forEach((r: any, i: number) => {
+        const geometry = {
+          type: 'LineString',
+          coordinates: r.coordinates
+        }
+        const feature = { type: 'Feature', geometry, properties: {} }
+        const src = map.getSource(`route-${i}`) as GeoJSONSource
+        src?.setData(feature as any)
+      })
+      
+      // clear unused layers if fewer than 3
+      for (let i = routes.length; i < 3; i++) {
+        const src = map.getSource(`route-${i}`) as GeoJSONSource
+        src?.setData({ type: 'FeatureCollection', features: [] } as any)
+      }
+      fitToBounds(points)
+      highlightRoute(0)
+      
+      // Calculate safety scores for routes
+      const routeCoords = routes.map((route: any) => {
+        // Sample coordinates along the route (every 10th point to reduce API calls)
+        const coords = route.coordinates || []
+        return coords.filter((_: any, index: number) => index % 10 === 0).map((coord: number[]) => ({
+          lat: coord[1],
+          lng: coord[0]
+        }))
+      }).filter((coords: any) => coords.length > 0)
+
+      if (routeCoords.length > 0) {
+        try {
+          const safetyPromises = routeCoords.map((coords: Coords[]) => 
+            calculateSafetyScores(undefined, coords)
+          )
+          const safetyResults = await Promise.all(safetyPromises)
+          const routeSafetyData = safetyResults.map((result, index) => ({
+            routeIndex: index,
+            safety: result?.routeSafety || null,
+            route: routes[index]
+          }))
+          setRouteSafetyScores(routeSafetyData)
+        } catch (error) {
+          console.error('Failed to calculate route safety scores:', error)
+        }
+      }
+      
+      const totalDistance = (routes[0]?.distance / 1000).toFixed(1)
+      const totalDuration = Math.round(routes[0]?.duration / 60)
+      
+      // Determine route service message
+      let routeServiceMessage = "(via Google Maps)"
+      if (data.source === 'osrm_fallback') {
+        routeServiceMessage = "(via OSRM fallback)"
+      } else if (data.source === 'google') {
+        routeServiceMessage = "(via Google Maps)"
+      }
+      
+      toast({ 
+        title: `🎯 ${routes.length} route${routes.length === 1 ? '' : 's'} ready!`, 
+        description: `Best route: ${totalDistance} km, ${totalDuration} min via ${profile} ${routeServiceMessage}. Click routes below to compare.`,
+        duration: 6000
+      })
+    } catch (error) {
+      toast({ 
+        title: '❌ Route calculation failed', 
+        description: 'Network error while calculating routes. Please check your connection and try again.', 
+        variant: 'destructive' as any,
+        duration: 5000
+      })
+    } finally {
+      setIsRouting(false)
+    }
+  }
+
+  // Handle file upload (.txt/.csv)
+  const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    const text = await file.text()
+    setRawText(text)
+    await parseItinerary(text)
+  }
+
+  const onPasteParse = async () => {
+    await parseItinerary(rawText)
+  }
+
+  const onBuildRoutes = async () => {
+    const names = parsedDestinations
+    if (!names.length) return
+    const points = await geocodeAll(names)
+    await drawRoute(points)
+  }
+
+  return (
+    <div className={cn('h-[85vh] max-h-[85vh] overflow-hidden w-full', className)}>
+      <Card className="card-elevated h-full flex flex-col overflow-hidden">
+        <div className="p-4 flex-shrink-0 border-b border-border/30 overflow-hidden">
+          <div className="flex items-center justify-between flex-wrap gap-2 min-w-0">
+            <div className="min-w-0 flex-shrink">
+              <h3 className="font-semibold text-lg">Map & Safety Analytics</h3>
+              <div className="text-xs text-muted-foreground truncate">
+                 📍 {currentLocation.lat.toFixed(4)}, {currentLocation.lng.toFixed(4)}
+                {watchId && <span className="ml-2 text-green-500">● Live</span>}
+              </div>
+              {currentLocationSafety && (
+                <div className="flex items-center gap-2 mt-1">
+                  <button
+                    onClick={() => setShowSafetyDetails(!showSafetyDetails)}
+                    className={cn(
+                      "text-xs px-2 py-0.5 rounded-full font-medium cursor-pointer hover:opacity-80 transition-opacity",
+                      currentLocationSafety.riskLevel === 'low' && "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
+                      currentLocationSafety.riskLevel === 'medium' && "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+                      currentLocationSafety.riskLevel === 'high' && "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300"
+                    )}
+                  >
+                    🛡️ Safety: {currentLocationSafety.score}/100 {showSafetyDetails ? '▼' : '▶'}
+                  </button>
+                  {isCalculatingSafety && (
+                    <div className="text-xs text-muted-foreground">
+                      🔄 Calculating...
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+            <div className="flex gap-2 flex-wrap flex-shrink-0">
+              <Button variant="outline" size="sm" onClick={centerOnUser} title="Center on me" className="min-w-0 px-2 sm:px-3">
+                <Crosshair className="w-4 h-4" />
+                <span className="hidden sm:inline ml-2">Center</span>
+              </Button>
+              {watchId ? (
+                <Button variant="destructive" size="sm" onClick={stopLiveLocation} className="min-w-0 px-2 sm:px-3">
+                  <span className="hidden sm:inline">Stop Live</span>
+                  <span className="sm:hidden">Stop</span>
+                </Button>
+              ) : (
+                <Button variant="default" size="sm" onClick={startLiveLocation} className="min-w-0 px-2 sm:px-3">
+                  <span className="hidden sm:inline">Go Live</span>
+                  <span className="sm:hidden">Live</span>
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Scrollable Content */}
+        <div className="flex-1 overflow-y-auto scrollbar-hide p-4 space-y-4 min-w-0">
+          <div ref={mapContainerRef} className="relative w-full h-48 rounded-lg overflow-hidden border border-border/30" />
+
+          {/* Safety Analysis Panel */}
+          {showSafetyDetails && currentLocationSafety && (
+            <div className="bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20 rounded-lg p-3 space-y-3">
+              <div className="flex items-center justify-between">
+                <h4 className="font-medium text-sm flex items-center gap-2">
+                  <Activity className="w-4 h-4 text-primary" />
+                  AI Safety Analysis
+                </h4>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={() => setShowSafetyDetails(false)}
+                  className="h-6 w-6 p-0"
+                >
+                  ×
+                </Button>
+              </div>
+              
+              <div className="grid grid-cols-3 gap-2 text-xs">
+                <div className="bg-muted rounded p-2 text-center">
+                  <div className="text-muted-foreground">Crime</div>
+                  <div className="font-bold text-red-600">{currentLocationSafety.crime}/10</div>
+                </div>
+                <div className="bg-muted rounded p-2 text-center">
+                  <div className="text-muted-foreground">Accidents</div>
+                  <div className="font-bold text-orange-600">{currentLocationSafety.accident}/10</div>
+                </div>
+                <div className="bg-muted rounded p-2 text-center">
+                  <div className="text-muted-foreground">Road</div>
+                  <div className="font-bold text-blue-600">{currentLocationSafety.road}/10</div>
+                </div>
+              </div>
+              
+              <div className="text-xs bg-muted rounded p-2">
+                <div className="font-medium mb-1">🤖 Analysis:</div>
+                <div className="text-muted-foreground">{currentLocationSafety.analysis}</div>
+              </div>
+              
+              {currentLocationSafety.recommendations && currentLocationSafety.recommendations.length > 0 && (
+                <div className="text-xs bg-muted rounded p-2">
+                  <div className="font-medium mb-1">💡 Recommendations:</div>
+                  <ul className="space-y-1">
+                    {currentLocationSafety.recommendations.slice(0, 3).map((rec: string, index: number) => (
+                      <li key={index} className="text-muted-foreground flex items-start gap-1">
+                        <span className="text-primary">•</span>
+                        <span>{rec}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
+          <Tabs value={activeTab} onValueChange={setActiveTab}>
+            <TabsList className="grid grid-cols-4 w-full h-auto">
+              <TabsTrigger value="today" className="text-[10px] sm:text-xs md:text-sm px-1 sm:px-3">Today</TabsTrigger>
+              <TabsTrigger value="itinerary" className="text-[10px] sm:text-xs md:text-sm px-1 sm:px-3">Add</TabsTrigger>
+              <TabsTrigger value="route" className="text-[10px] sm:text-xs md:text-sm px-1 sm:px-3">Routes</TabsTrigger>
+              <TabsTrigger value="heatmap" className="text-[10px] sm:text-xs md:text-sm px-1 sm:px-3">Heat</TabsTrigger>
+            </TabsList>
+
+          <TabsContent value="today" className="space-y-3 mt-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-primary" />
+                <span className="font-medium">Today's Destinations</span>
+                <Badge variant="outline" className="text-xs">
+                  🤖 AI Enhanced
+                </Badge>
+              </div>
+              <div className="flex flex-wrap gap-1 sm:gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setAutoCenter(!autoCenter)}
+                  className={cn(
+                    "text-[10px] sm:text-xs px-2 sm:px-3 min-w-0 flex-shrink-0",
+                    autoCenter && "bg-primary/10 border-primary/30"
+                  )}
+                >
+                  <span className="hidden sm:inline">{autoCenter ? '📍 Auto-Center On' : '📍 Auto-Center Off'}</span>
+                  <span className="sm:hidden">{autoCenter ? '📍 On' : '📍 Off'}</span>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={fetchTodayDestinations}
+                  disabled={isLoadingTrips || !isAuthenticated}
+                  className="text-[10px] sm:text-xs px-2 sm:px-3 min-w-0 flex-shrink-0"
+                >
+                  <span className="hidden sm:inline">{isLoadingTrips ? '🔄 Loading' : '🔄 Refresh'}</span>
+                  <span className="sm:hidden">{isLoadingTrips ? '🔄' : '🔄'}</span>
+                </Button>
+              </div>
+            </div>
+
+            {!isAuthenticated ? (
+              <div className="text-center p-4 bg-muted/20 rounded-lg">
+                <div className="text-sm text-muted-foreground">
+                  Please log in to view today's destinations from your itinerary
+                </div>
+              </div>
+            ) : todayDestinations.length === 0 ? (
+              <div className="space-y-3">
+                <div className="text-center p-4 bg-muted/20 rounded-lg">
+                  <div className="text-sm text-muted-foreground">
+                    {isLoadingTrips ? 'Loading destinations...' : 'No destinations scheduled for today'}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">
+                    Add activities to your trip itinerary in the Profile section
+                  </div>
+                </div>
+                
+                {/* Debug Info */}
+                <div className="text-xs text-muted-foreground bg-amber-50 dark:bg-amber-950/20 p-2 rounded-lg border border-amber-200 dark:border-amber-800">
+                  <div className="font-medium text-amber-800 dark:text-amber-200 mb-1">Debug Info:</div>
+                  <div>Looking for date: {new Date().toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}</div>
+                  <div className="mt-1">
+                    Check browser console for detailed parsing information
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {/* AI Processing Info */}
+                <div className="text-xs text-muted-foreground bg-gradient-to-r from-primary/5 to-primary/10 p-2 rounded-lg border border-primary/20">
+                  <div className="flex items-center gap-1 font-medium text-primary">
+                    <Activity className="w-3 h-3" />
+                    AI-Enhanced Location Processing
+                  </div>
+                  <div className="mt-1">
+                    Destinations extracted from {todayDestinations.length} activity{todayDestinations.length === 1 ? '' : 'ies'} using AI
+                  </div>
+                  <div className="mt-1 text-xs">
+                    <strong>Today's Date:</strong> {new Date().toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}
+                  </div>
+                </div>
+                
+                <div className="text-xs text-muted-foreground">
+                  📍 Click any destination to get directions • Single destination routes supported
+                </div>
+                
+                {todayDestinations.map((dest, index) => (
+                  <div
+                    key={index}
+                    className={cn(
+                      "p-3 rounded-lg border transition-all cursor-pointer",
+                      selectedDestination?.name === dest.name
+                        ? "border-primary bg-primary/10"
+                        : "border-border/60 bg-card/50 hover:bg-card/70 hover:border-border"
+                    )}
+                    onClick={() => {
+                      setSelectedDestination(dest)
+                      if (dest.coords) {
+                        drawRouteToDestination(dest.coords)
+                      } else {
+                        toast({
+                          title: '📍 Location not found',
+                          description: `Unable to find coordinates for ${dest.name}. Try adding more specific location details.`,
+                          variant: 'destructive',
+                          duration: 4000
+                        })
+                      }
+                    }}
+                  >
+                    <div className="flex items-start justify-between">
+                      <div className="flex items-start gap-2">
+                        <div className="w-6 h-6 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-xs font-bold text-primary">
+                          {index + 1}
+                        </div>
+                        <div className="flex-1">
+                          <div className="font-medium text-sm">{dest.activity.title}</div>
+                          <div className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
+                            <MapPin className="w-3 h-3" />
+                            {dest.name}
+                          </div>
+                          <div className="text-xs text-primary/70 mt-1">
+                            Type: {dest.activity.type} {dest.activity.duration && `• ${dest.activity.duration}`}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-xs font-medium flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
+                          {dest.activity.time}
+                        </div>
+                        <div className={cn(
+                          "text-xs mt-1 px-2 py-0.5 rounded-full",
+                          dest.coords 
+                            ? "text-green-600 bg-green-100 dark:bg-green-900/30" 
+                            : "text-amber-600 bg-amber-100 dark:bg-amber-900/30"
+                        )}>
+                          {dest.coords ? '✓ Mapped' : '⚠ No GPS'}
+                        </div>
+                      </div>
+                    </div>
+                    {dest.activity.description && (
+                      <div className="text-xs text-muted-foreground mt-2 pl-8 italic">
+                        "{dest.activity.description}"
+                      </div>
+                    )}
+                  </div>
+                ))}
+                
+                {selectedDestination && (
+                  <div className="mt-3 p-3 bg-primary/5 border border-primary/20 rounded-lg">
+                    <div className="text-xs font-medium text-primary flex items-center gap-1">
+                      <Navigation className="w-3 h-3" />
+                      Selected for Navigation
+                    </div>
+                    <div className="text-sm font-medium mt-1">{selectedDestination.activity.title}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {selectedDestination.activity.time} • {selectedDestination.name}
+                    </div>
+                    {selectedDestination.coords && (
+                      <div className="text-xs text-green-600 mt-1">
+                        📍 Coordinates: {selectedDestination.coords.lat.toFixed(4)}, {selectedDestination.coords.lng.toFixed(4)}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Route All Destinations Button */}
+                {todayDestinations.filter(d => d.coords).length > 0 && (
+                  <Button
+                    onClick={async () => {
+                      const coordsList = todayDestinations
+                        .filter(d => d.coords)
+                        .map(d => d.coords!)
+                      await drawRoute(coordsList)
+                    }}
+                    className="w-full mt-3"
+                    variant="outline"
+                  >
+                    <Route className="w-4 h-4 mr-2" />
+                    Route All Destinations ({todayDestinations.filter(d => d.coords).length})
+                  </Button>
+                )}
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="itinerary" className="space-y-3 mt-4">
+            <div className="flex flex-col gap-2">
+              <Input 
+                placeholder="Quick add destination (e.g., Paris, France)"
+                value={rawText}
+                onChange={(e) => setRawText(e.target.value)}
+                className="w-full" 
+              />
+              <Button 
+                size="sm" 
+                onClick={onPasteParse} 
+                disabled={isParsing || !rawText.trim()}
+                className="w-full"
+              >
+                <Plus className="w-4 h-4 mr-1" />
+                Add Destination
+              </Button>
+            </div>
+            <div className="text-xs text-muted-foreground">
+              💡 For detailed itinerary management, use the <span className="font-medium">Profile → Itinerary</span> section
+            </div>
+            {parsedDestinations.length > 0 && (
+              <div className="text-xs text-muted-foreground bg-muted/30 p-2 rounded-md">
+                <div className="font-medium mb-1">Added destinations:</div>
+                <div className="break-words">
+                  {parsedDestinations.slice(0, 8).join(' • ')}{parsedDestinations.length > 8 ? '…' : ''}
+                </div>
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="route" className="space-y-4 mt-4">
+            <div className="space-y-3">
+              <div className="space-y-2">
+                <span className="text-muted-foreground font-medium text-sm">Travel mode:</span>
+                <div className="grid grid-cols-3 gap-1 w-full">
+                  <Button 
+                    variant={profile === 'driving' ? 'default' : 'outline'} 
+                    size="sm" 
+                    onClick={() => setProfile('driving')}
+                    className="text-[10px] sm:text-xs px-1 sm:px-2"
+                  >
+                    🚗 Drive
+                  </Button>
+                  <Button 
+                    variant={profile === 'walking' ? 'default' : 'outline'} 
+                    size="sm" 
+                    onClick={() => setProfile('walking')}
+                    className="text-[10px] sm:text-xs px-1 sm:px-2"
+                  >
+                    🚶 Walk
+                  </Button>
+                  <Button 
+                    variant={profile === 'cycling' ? 'default' : 'outline'} 
+                    size="sm" 
+                    onClick={() => setProfile('cycling')}
+                    className="text-[10px] sm:text-xs px-1 sm:px-2"
+                  >
+                    🚴 Cycle
+                  </Button>
+                </div>
+              </div>
+
+              {/* Routing Service Info */}
+              <div className="text-xs text-muted-foreground text-center py-1">
+                Using Google Maps Directions API for routing
+              </div>
+              
+              <div className="grid grid-cols-2 gap-2">
+                <Button 
+                  size="sm" 
+                  onClick={onBuildRoutes} 
+                  disabled={isRouting || parsedDestinations.length === 0}
+                  className="w-full text-xs"
+                >
+                  {isRouting ? 'Building...' : 'Build Routes'}
+                </Button>
+                <Button 
+                  size="sm" 
+                  variant="outline" 
+                  onClick={() => {
+                    setParsedDestinations([])
+                    setDestCoords([])
+                    const map = mapRef.current
+                    for (let i = 0; i < 3; i++) {
+                      const src = map?.getSource(`route-${i}`) as GeoJSONSource | undefined
+                      src?.setData({ type: 'FeatureCollection', features: [] } as any)
+                    }
+                    setRoutes([])
+                    setSelectedRouteIdx(null)
+                    toast({ 
+                      title: 'Routes cleared', 
+                      description: 'All routes and destinations have been cleared from the map.' 
+                    })
+                  }}
+                  className="w-full text-xs"
+                >
+                  Clear All
+                </Button>
+              </div>
+            </div>
+            
+            {routes.length > 0 && (
+              <>
+                {/* Route Suggestions Based on Safety */}
+                <div className="space-y-3 pt-2 border-t border-border/40">
+                  <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                    <Shield className="w-4 h-4 text-green-600" /> 
+                    Route Suggestions
+                  </div>
+                  <div className="space-y-2">
+                    {(() => {
+                      // Sort routes by safety score (highest first)
+                      const routesWithSafety = routes.map((route, index) => ({
+                        route,
+                        index,
+                        safety: routeSafetyScores.find(rs => rs.routeIndex === index)?.safety
+                      })).filter(r => r.safety); // Only include routes with safety data
+                      
+                      const sortedRoutes = routesWithSafety.sort((a, b) => 
+                        (b.safety?.averageScore || 0) - (a.safety?.averageScore || 0)
+                      );
+
+                      const safestRoute = sortedRoutes[0];
+                      const fastestRoute = routes.reduce((fastest, current, index) => 
+                        current.duration < fastest.route.duration ? { route: current, index } : fastest, 
+                        { route: routes[0], index: 0 }
+                      );
+
+                      const suggestions = [];
+
+                      // Add safest route suggestion
+                      if (safestRoute && safestRoute.safety.averageScore >= 70) {
+                        suggestions.push({
+                          type: 'safest',
+                          route: safestRoute.route,
+                          index: safestRoute.index,
+                          safety: safestRoute.safety,
+                          icon: '🛡️',
+                          title: 'Safest Route',
+                          description: `Highest safety score (${safestRoute.safety.averageScore}/100)`
+                        });
+                      }
+
+                      // Add fastest route suggestion if different from safest
+                      if (fastestRoute.index !== safestRoute?.index) {
+                        const fastestSafety = routeSafetyScores.find(rs => rs.routeIndex === fastestRoute.index)?.safety;
+                        if (fastestSafety && fastestSafety.averageScore >= 50) {
+                          suggestions.push({
+                            type: 'fastest',
+                            route: fastestRoute.route,
+                            index: fastestRoute.index,
+                            safety: fastestSafety,
+                            icon: '⚡',
+                            title: 'Fastest Safe Route',
+                            description: `Quickest option with decent safety (${fastestSafety.averageScore}/100)`
+                          });
+                        }
+                      }
+
+                      // Add balanced route suggestion
+                      const balancedRoute = sortedRoutes.find(r => 
+                        r.safety.averageScore >= 60 && 
+                        r.index !== safestRoute?.index && 
+                        r.index !== fastestRoute.index
+                      );
+                      
+                      if (balancedRoute) {
+                        suggestions.push({
+                          type: 'balanced',
+                          route: balancedRoute.route,
+                          index: balancedRoute.index,
+                          safety: balancedRoute.safety,
+                          icon: '⚖️',
+                          title: 'Balanced Route',
+                          description: `Good balance of safety and efficiency (${balancedRoute.safety.averageScore}/100)`
+                        });
+                      }
+
+                      return suggestions.slice(0, 2).map((suggestion, i) => {
+                        const distKm = (suggestion.route.distance / 1000).toFixed(1);
+                        const durMin = Math.round(suggestion.route.duration / 60);
+                        const durHr = Math.floor(durMin / 60);
+                        const durRemainMin = durMin % 60;
+                        const durationText = durHr > 0 ? `${durHr}h ${durRemainMin}m` : `${durMin}m`;
+                        
+                        return (
+                          <div
+                            key={`suggestion-${i}`}
+                            className="p-3 rounded-lg border border-green-200 bg-green-50/50 dark:border-green-800 dark:bg-green-900/20"
+                          >
+                            <div className="flex items-start justify-between">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className="text-sm">{suggestion.icon}</span>
+                                <span className="font-medium text-sm text-green-700 dark:text-green-300">
+                                  {suggestion.title}
+                                </span>
+                                <div className={cn(
+                                  "text-xs px-1.5 py-0.5 rounded font-medium",
+                                  suggestion.safety.riskLevel === 'low' && "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
+                                  suggestion.safety.riskLevel === 'medium' && "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+                                  suggestion.safety.riskLevel === 'high' && "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300"
+                                )}>
+                                  {suggestion.safety.averageScore}
+                                </div>
+                              </div>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="text-xs h-7"
+                                onClick={() => {
+                                  setSelectedRouteIdx(suggestion.index);
+                                  highlightRoute(suggestion.index);
+                                  toast({
+                                    title: `${suggestion.title} Selected`,
+                                    description: `${distKm} km • ${durationText} • Safety: ${suggestion.safety.averageScore}/100`,
+                                    duration: 3000
+                                  });
+                                }}
+                              >
+                                Select
+                              </Button>
+                            </div>
+                            <div className="text-xs text-muted-foreground mb-1">
+                              {suggestion.description}
+                            </div>
+                            <div className="flex items-center justify-between text-xs text-muted-foreground">
+                              <span>{distKm} km • {durationText}</span>
+                              {suggestion.safety.riskySections > 0 && (
+                                <span className="text-amber-600">
+                                  ⚠️ {suggestion.safety.riskySections} risky sections
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      });
+                    })()}
+                  </div>
+                </div>
+
+                {/* Available Routes Section */}
+                <div className="space-y-3 pt-2 border-t border-border/40">
+                <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                  <ListChecks className="w-4 h-4 text-primary" /> 
+                  Available Routes ({routes.length})
+                </div>
+                <div className="space-y-2">
+                  {routes.map((r, i) => {
+                    const distKm = (r.distance / 1000).toFixed(1)
+                    const durMin = Math.round(r.duration / 60)
+                    const durHr = Math.floor(durMin / 60)
+                    const durRemainMin = durMin % 60
+                    const durationText = durHr > 0 ? `${durHr}h ${durRemainMin}m` : `${durMin}m`
+                    const isSelected = selectedRouteIdx === i
+                    const colors = ['emerald', 'blue', 'amber']
+                    const colorClass = colors[i] || 'gray'
+                    const routeSafety = routeSafetyScores.find(rs => rs.routeIndex === i)?.safety
+                    
+                    return (
+                      <button
+                        key={i}
+                        className={cn(
+                          'w-full text-left p-3 rounded-lg border transition-all duration-200 hover:shadow-md',
+                          isSelected 
+                            ? `border-${colorClass}-500 bg-${colorClass}-500/10 shadow-md` 
+                            : 'border-border/60 hover:border-border bg-card/50 hover:bg-card/70'
+                        )}
+                        onClick={() => {
+                          setSelectedRouteIdx(i)
+                          toast({ 
+                            title: `Route ${i + 1} selected`, 
+                            description: `${distKm} km • ${durationText} via ${profile}${routeSafety ? ` • Safety: ${routeSafety.averageScore}/100` : ''}`,
+                            duration: 3000
+                          })
+                          highlightRoute(i)
+                        }}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <div className={cn(
+                              'w-3 h-3 rounded-full',
+                              colorClass === 'emerald' && 'bg-emerald-500',
+                              colorClass === 'blue' && 'bg-blue-500', 
+                              colorClass === 'amber' && 'bg-amber-500'
+                            )} />
+                            <span className="font-medium">Route {i + 1}</span>
+                            {isSelected && (
+                              <Badge variant="secondary" className="text-xs">
+                                Selected
+                              </Badge>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-2">
+                            {routeSafety && (
+                              <div className={cn(
+                                "text-xs px-1.5 py-0.5 rounded font-medium",
+                                routeSafety.riskLevel === 'low' && "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
+                                routeSafety.riskLevel === 'medium' && "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+                                routeSafety.riskLevel === 'high' && "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300"
+                              )}>
+                                {routeSafety.averageScore}
+                              </div>
+                            )}
+                            <div className="text-xs text-muted-foreground">
+                              {distKm} km
+                            </div>
+                          </div>
+                        </div>
+                        <div className="mt-1 flex items-center justify-between text-xs text-muted-foreground">
+                          <span>Duration: {durationText}</span>
+                          <div className="flex items-center gap-2">
+                            {routeSafety && routeSafety.riskySections > 0 && (
+                              <span className="text-amber-600">
+                                ⚠️ {routeSafety.riskySections} risky sections
+                              </span>
+                            )}
+                            <span className="capitalize">{profile}</span>
+                          </div>
+                        </div>
+                      </button>
+                    )
+                  })}
+                </div>
+                <div className="text-xs text-muted-foreground bg-muted/20 p-2 rounded-md">
+                  💡 Tip: Click any route to highlight it on the map. Routes are color-coded for easy identification.
+                </div>
+              </div>
+              </>
+            )}
+          </TabsContent>
+
+          <TabsContent value="heatmap" className="space-y-3 mt-4">
+            <SafetyHeatmap externalMapRef={mapRef} onLocationSelect={useCallback((lat: number, lon: number) => {
+              const map = mapRef.current
+              if (map) {
+                map.flyTo({ center: [lon, lat], zoom: 14, duration: 1000 })
+                toast({
+                  title: '📍 Location selected',
+                  description: `Centered on ${lat.toFixed(4)}, ${lon.toFixed(4)}`,
+                  duration: 3000
+                })
+              }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            }, [])} />
+          </TabsContent>
+
+
+        </Tabs>
+        </div>
+      </Card>
+    </div>
+  )
+}
