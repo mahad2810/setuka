@@ -1,0 +1,13 @@
+tourist_id,anomaly_type,start_time,end_time,description,severity
+T002,route_deviation,2026-03-05 08:06:00,2026-03-05 08:28:00,"Deviated to (27.0150, 88.2750), ~22 min off-route into remote area",HIGH
+T003,dwell_time_anomaly,2026-03-05 06:00:00,2026-03-05 07:49:00,"Overstayed at Tiger Hill by ~74 extra minutes (planned dwell: 36 min, actual: 110 min)",MEDIUM-HIGH
+T004,speed_anomaly,2026-03-05 09:52:00,2026-03-05 09:54:00,"Impossible speed spike: jumped ~3km in 1 minute from (27.0398,88.2627) to (27.0696,88.2879)",HIGH
+T004,speed_anomaly_sudden_stop,2026-03-05 12:18:00,2026-03-05 12:33:00,"Sudden stop for 15 min during transit at (27.0411,88.2617) — possible breakdown",MEDIUM
+T005,route_deviation,2026-03-05 09:18:00,2026-03-05 09:39:00,"Deviated to (27.0150, 88.2750), ~21 min off-route into remote area",HIGH
+T005,dwell_time_anomaly,2026-03-05 10:23:00,2026-03-05 12:59:00,"Overstayed at Observatory Hill by ~81 extra minutes (planned dwell: 95 min, actual: 176 min)",MEDIUM-HIGH
+T007,route_deviation,2026-03-05 09:00:00,2026-03-05 09:31:00,"Deviated to (27.0050, 88.2400), ~31 min off-route into remote area",HIGH
+T008,speed_anomaly,2026-03-05 09:59:00,2026-03-05 10:01:00,"Impossible speed spike: jumped ~3km in 1 minute from (27.0387,88.2626) to (27.0596,88.2851)",HIGH
+T008,speed_anomaly_sudden_stop,2026-03-05 11:37:00,2026-03-05 11:52:00,"Sudden stop for 15 min during transit at (27.0388,88.2586) — possible breakdown",MEDIUM
+T009,dwell_time_anomaly,2026-03-05 06:00:00,2026-03-05 08:33:00,"Overstayed at Tiger Hill by ~80 extra minutes (planned dwell: 74 min, actual: 154 min)",MEDIUM-HIGH
+T009,speed_anomaly,2026-03-05 10:34:00,2026-03-05 10:36:00,"Impossible speed spike: jumped ~3km in 1 minute from (27.0253,88.2543) to (27.0492,88.2839)",HIGH
+T009,speed_anomaly_sudden_stop,2026-03-05 11:04:00,2026-03-05 11:19:00,"Sudden stop for 15 min during transit at (27.0322,88.2569) — possible breakdown",MEDIUM
