@@ -1,0 +1,122 @@
+{
+  "name": "Setuka - Smart Tourist Safety Monitoring",
+  "short_name": "Setuka",
+  "description": "AI-powered safety monitoring and incident response system for tourists with continuous location tracking",
+  "start_url": "/dashboard?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#1f2937",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "background_sync": true,
+  "permissions": [
+    "geolocation",
+    "background-sync",
+    "notifications",
+    "persistent-storage",
+    "periodic-background-sync"
+  ],
+  "icons": [
+    {
+      "src": "/SetUva-logo.png",
+      "sizes": "120x120",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/SetUva-logo.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/SetUva-logo.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/SetUva-logo.png",
+      "sizes": "167x167",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/SetUva-logo.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/SetUva-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/SetUva-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["travel", "safety", "utilities"],
+  "lang": "en",
+  "dir": "ltr",
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view of Setuka app with location tracking"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Emergency SOS",
+      "short_name": "SOS",
+      "description": "Quick access to emergency services",
+      "url": "/dashboard?action=emergency",
+      "icons": [
+        {
+          "src": "/SetUva-logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Live Tracking",
+      "short_name": "Track",
+      "description": "Enable continuous location tracking",
+      "url": "/dashboard?action=tracking",
+      "icons": [
+        {
+          "src": "/SetUva-logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Safety Dashboard",
+      "short_name": "Dashboard",
+      "description": "View your safety status",
+      "url": "/dashboard",
+      "icons": [
+        {
+          "src": "/SetUva-logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "launch_handler": {
+    "client_mode": ["focus-existing", "auto"]
+  },
+  "handle_links": "preferred"
+}
