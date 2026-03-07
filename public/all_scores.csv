@@ -1,0 +1,537 @@
+rank,place_name,latitude,longitude,region,score,label,road,crime,accident,confidence,nearest_dist_km,model,road_rating_raw,crime_rating_raw,accident_rating_raw
+1,Fort William Area,22.558,88.338,KOLKATA,8.7,Very Safe,9.0,1.0,2.0,HIGH,0.0,Coupled IDW,9,1,2
+2,Central Park (Salt Lake),22.579,88.415,KOLKATA,8.7,Very Safe,9.0,1.0,2.0,HIGH,0.0,Coupled IDW,9,1,2
+3,New Town Eco Park Area,22.602,88.468,KOLKATA,8.7,Very Safe,9.0,1.0,2.0,HIGH,0.0,Coupled IDW,9,1,2
+4,Eco Park Main Gate,22.605,88.465,KOLKATA,8.7,Very Safe,9.0,1.0,2.0,HIGH,0.0,Coupled IDW,9,1,2
+5,Nazrul Tirtha,22.599,88.464,KOLKATA,8.7,Very Safe,9.0,1.0,2.0,HIGH,0.0,Coupled IDW,9,1,2
+6,New Town Action Area I,22.5958,88.4672,KOLKATA,8.3,Very Safe,9.0,2.0,2.0,HIGH,0.0,Coupled IDW,9,2,2
+7,New Town Action Area I (CC2),22.592,88.47,KOLKATA,8.3,Very Safe,9.0,2.0,2.0,HIGH,0.0,Coupled IDW,9,2,2
+8,New Town Action Area II,22.585,88.475,KOLKATA,8.3,Very Safe,9.0,2.0,2.0,HIGH,0.0,Coupled IDW,9,2,2
+9,Biswa Bangla Gate,22.596,88.461,KOLKATA,8.3,Very Safe,9.0,2.0,2.0,HIGH,0.0,Coupled IDW,9,2,2
+10,Victoria Memorial,22.5448,88.3426,KOLKATA,8.0,Very Safe,8.0,2.0,2.0,HIGH,0.0,Coupled IDW,8,2,2
+11,Salt Lake Sector V (IT Hub),22.5726,88.4318,KOLKATA,8.0,Very Safe,9.0,2.0,3.0,HIGH,0.0,Coupled IDW,9,2,3
+12,Salt Lake Sector V (Module),22.574,88.428,KOLKATA,8.0,Very Safe,9.0,2.0,3.0,HIGH,0.0,Coupled IDW,9,2,3
+13,National Library Area,22.529,88.339,KOLKATA,8.0,Very Safe,8.0,2.0,2.0,HIGH,0.0,Coupled IDW,8,2,2
+14,Raj Bhawan Area,27.047,88.2645,DARJEELING,7.84,Safe,6.57,1.13,2.27,HIGH,0.0,IDW+Gradient,7,1,2
+15,Salt Lake Sector I,22.578,88.405,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+16,Salt Lake Sector I (AE Block),22.576,88.408,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+17,Salt Lake Sector II,22.581,88.41,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+18,Salt Lake Sector II (FE Block),22.58,88.412,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+19,Salt Lake Sector III,22.581,88.415,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+20,Salt Lake Sector IV,22.576,88.418,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+21,Karunamoyee,22.5828,88.4115,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+22,Nicco Park Area,22.5775,88.4175,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+23,City Centre Salt Lake,22.583,88.419,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+24,Nalban Food Park,22.5765,88.413,KOLKATA,7.7,Safe,7.0,2.0,2.0,HIGH,0.0,Coupled IDW,7,2,2
+25,Salt Lake Stadium Area,22.572,88.406,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+26,New Town Action Area III,22.578,88.482,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+27,New Town Bus Stand,22.588,88.472,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+28,Unitech Area,22.583,88.469,KOLKATA,7.7,Safe,8.0,2.0,3.0,HIGH,0.0,Coupled IDW,8,2,3
+29,Snow Leopard Breeding Centre,27.041,88.259,DARJEELING,7.58,Safe,5.72,1.13,2.28,HIGH,0.0,IDW+Gradient,6,1,2
+30,Planters' Club,27.045,88.263,DARJEELING,7.5,Safe,6.57,1.98,2.27,HIGH,0.0,IDW+Gradient,7,2,2
+31,Salt Lake Bypass (North),22.585,88.42,KOLKATA,7.4,Safe,8.0,2.0,4.0,HIGH,0.0,Coupled IDW,8,2,4
+32,Salt Lake Bypass (East),22.578,88.425,KOLKATA,7.4,Safe,8.0,2.0,4.0,HIGH,0.0,Coupled IDW,8,2,4
+33,Alipore Zoo Area,22.538,88.334,KOLKATA,7.4,Safe,7.0,2.0,3.0,HIGH,0.0,Coupled IDW,7,2,3
+34,Science City,22.541,88.399,KOLKATA,7.4,Safe,8.0,2.0,4.0,HIGH,0.0,Coupled IDW,8,2,4
+35,Belur Math,22.63,88.35,KOLKATA,7.4,Safe,7.0,2.0,3.0,HIGH,0.0,Coupled IDW,7,2,3
+36,Rabindra Sarobar,22.509,88.356,KOLKATA,7.4,Safe,7.0,2.0,3.0,HIGH,0.0,Coupled IDW,7,2,3
+37,Bagdogra Airport,26.6812,88.3285,DARJEELING,7.35,Safe,7.54,2.23,3.39,HIGH,0.0,IDW+Gradient,8,2,3
+38,Maidan (Central),22.548,88.343,KOLKATA,7.3,Safe,8.0,3.0,3.0,HIGH,0.0,Coupled IDW,8,3,3
+39,Maidan (South),22.542,88.34,KOLKATA,7.3,Safe,8.0,3.0,3.0,HIGH,0.0,Coupled IDW,8,3,3
+40,Millennium Park,22.564,88.345,KOLKATA,7.3,Safe,8.0,3.0,3.0,HIGH,0.0,Coupled IDW,8,3,3
+41,Alipore,22.5326,88.339,KOLKATA,7.3,Safe,8.0,3.0,3.0,HIGH,0.0,Coupled IDW,8,3,3
+42,Observatory Hill,27.0455,88.2635,DARJEELING,7.24,Safe,5.72,1.98,2.27,HIGH,0.0,IDW+Gradient,6,2,2
+43,Windamere Hotel Area,27.046,88.261,DARJEELING,7.24,Safe,5.72,1.98,2.27,HIGH,0.0,IDW+Gradient,6,2,2
+44,St. Andrew's Church,27.0455,88.265,DARJEELING,7.24,Safe,5.72,1.98,2.27,HIGH,0.0,IDW+Gradient,6,2,2
+45,Shrubbery Park,27.049,88.2655,DARJEELING,7.24,Safe,5.72,1.97,2.27,HIGH,0.0,IDW+Gradient,6,2,2
+46,Raj Bhawan Gate,27.0475,88.265,DARJEELING,7.24,Safe,5.72,1.98,2.27,HIGH,0.0,IDW+Gradient,6,2,2
+47,Padmaja Naidu Zoo,27.04,88.26,DARJEELING,7.24,Safe,5.72,1.98,2.28,HIGH,0.0,IDW+Gradient,6,2,2
+48,Vidyasagar Setu (2nd Hooghly Bridge),22.549,88.331,KOLKATA,7.1,Safe,8.0,2.0,5.0,HIGH,0.0,Coupled IDW,8,2,5
+49,Lamahatta (Eco Park),27.036,88.321,DARJEELING,7.06,Safe,4.89,1.15,3.15,HIGH,0.0,IDW+Gradient,5,1,3
+50,Princep Ghat,22.556,88.337,KOLKATA,7.0,Safe,7.0,3.0,3.0,HIGH,0.0,Coupled IDW,7,3,3
+51,Mahishbathan,22.595,88.453,KOLKATA,7.0,Safe,7.0,3.0,3.0,HIGH,0.0,Coupled IDW,7,3,3
+52,Alipore Court Area,22.5346,88.337,KOLKATA,7.0,Safe,7.0,3.0,3.0,HIGH,0.0,Coupled IDW,7,3,3
+53,Elgin Road,22.537,88.351,KOLKATA,7.0,Safe,8.0,3.0,4.0,HIGH,0.0,Coupled IDW,8,3,4
+54,Hindustan Park,22.513,88.3595,KOLKATA,7.0,Safe,7.0,3.0,3.0,HIGH,0.0,Coupled IDW,7,3,3
+55,Dover Lane,22.516,88.363,KOLKATA,7.0,Safe,7.0,3.0,3.0,HIGH,0.0,Coupled IDW,7,3,3
+56,Bhutia Busty Monastery,27.0465,88.262,DARJEELING,6.99,Safe,4.87,1.98,2.27,HIGH,0.0,IDW+Gradient,5,2,2
+57,North Point (Japanese Temple),27.052,88.264,DARJEELING,6.99,Safe,4.87,1.97,2.27,HIGH,0.0,IDW+Gradient,5,2,2
+58,Peace Pagoda Area,27.053,88.263,DARJEELING,6.99,Safe,4.87,1.97,2.27,HIGH,0.0,IDW+Gradient,5,2,2
+59,Birch Hill Park,27.05,88.262,DARJEELING,6.99,Safe,4.87,1.97,2.27,HIGH,0.0,IDW+Gradient,5,2,2
+60,St. Paul's School Area,27.037,88.265,DARJEELING,6.99,Safe,4.87,1.98,2.28,HIGH,0.0,IDW+Gradient,5,2,2
+61,HMI (Himalayan Mountaineering),27.0395,88.2615,DARJEELING,6.99,Safe,5.72,1.98,3.13,HIGH,0.0,IDW+Gradient,6,2,3
+62,Loreto Convent Area,27.0445,88.26,DARJEELING,6.99,Safe,4.87,1.98,2.27,HIGH,0.0,IDW+Gradient,5,2,2
+63,Batasia Loop,27.027,88.268,DARJEELING,6.98,Safe,5.73,1.99,3.14,HIGH,0.0,IDW+Gradient,6,2,3
+64,Batasia Loop (War Memorial),27.0265,88.2675,DARJEELING,6.98,Safe,5.73,1.99,3.14,HIGH,0.0,IDW+Gradient,6,2,3
+65,Mirik Lake (Sumendu Lake),26.888,88.186,DARJEELING,6.94,Safe,5.74,2.06,3.2,HIGH,0.0,IDW+Gradient,6,2,3
+66,Chowrasta (The Mall),27.044,88.264,DARJEELING,6.9,Safe,6.57,2.83,3.13,HIGH,0.0,IDW+Gradient,7,3,3
+67,Mall Road (West),27.0445,88.2625,DARJEELING,6.9,Safe,6.57,2.83,3.12,HIGH,0.0,IDW+Gradient,7,3,3
+68,Mall Road (East),27.0435,88.266,DARJEELING,6.9,Safe,6.57,2.83,3.13,HIGH,0.0,IDW+Gradient,7,3,3
+69,Glenary's / Keventer's Area,27.0438,88.2642,DARJEELING,6.9,Safe,6.57,2.83,3.13,HIGH,0.0,IDW+Gradient,7,3,3
+70,Takdah (Orchid Centre),27.046,88.336,DARJEELING,6.81,Safe,4.04,1.15,3.15,HIGH,0.0,IDW+Gradient,4,1,3
+71,Tiger Hill (View Point),27.0125,88.2835,DARJEELING,6.8,Safe,4.89,1.15,4.0,HIGH,0.0,IDW+Gradient,5,1,4
+72,Margaret's Hope Tea Estate,27.005,88.265,DARJEELING,6.8,Safe,4.03,1.15,3.15,HIGH,0.0,IDW+Gradient,4,1,3
+73,Tiger Hill Viewpoint,27.012,88.2835,DARJEELING,6.8,Safe,4.89,1.15,4.0,HIGH,0.0,IDW+Gradient,5,1,4
+74,Makaibari Tea Estate (Entry),26.871,88.289,DARJEELING,6.75,Safe,4.08,1.25,3.25,HIGH,0.0,IDW+Gradient,4,1,3
+75,North Point,27.051,88.265,DARJEELING,6.74,Safe,4.87,1.97,3.12,HIGH,0.0,IDW+Gradient,5,2,3
+76,Darjeeling Ropeway (Upper),27.0485,88.26,DARJEELING,6.74,Safe,4.87,1.97,3.12,HIGH,0.0,IDW+Gradient,5,2,3
+77,Aloobari Monastery,27.0475,88.257,DARJEELING,6.74,Safe,4.02,1.97,2.27,HIGH,0.0,IDW+Gradient,4,2,2
+78,Kanchenjunga Viewpoint (North Point),27.0515,88.2645,DARJEELING,6.74,Safe,4.87,1.97,3.12,HIGH,0.0,IDW+Gradient,5,2,3
+79,St. Paul's School Road,27.038,88.266,DARJEELING,6.73,Safe,4.87,1.98,3.13,HIGH,0.0,IDW+Gradient,5,2,3
+80,Lebong Race Course,27.036,88.275,DARJEELING,6.73,Safe,4.88,1.99,3.13,HIGH,0.0,IDW+Gradient,5,2,3
+81,Lloyd Botanical Garden,27.0385,88.264,DARJEELING,6.73,Safe,4.87,1.98,3.13,HIGH,0.0,IDW+Gradient,5,2,3
+82,Happy Valley (Gate),27.043,88.2575,DARJEELING,6.73,Safe,4.87,1.98,3.12,HIGH,0.0,IDW+Gradient,5,2,3
+83,Ghoom Monastery,27.022,88.262,DARJEELING,6.73,Safe,4.88,1.99,3.14,HIGH,0.0,IDW+Gradient,5,2,3
+84,Rajarhat Chowmatha,22.605,88.455,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+85,Rajarhat (Gopalpur),22.61,88.46,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+86,Ballygunge Circular Road,22.527,88.36,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+87,Southern Avenue (West),22.514,88.358,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+88,Southern Avenue (East),22.514,88.364,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+89,Gol Park / Triangular Park,22.5215,88.362,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+90,Deshapriya Park,22.5165,88.359,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+91,New Alipore (Block A),22.518,88.328,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+92,Rabindra Sadan,22.539,88.3462,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+93,Netaji Bhawan,22.536,88.35,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+94,Minto Park / Shahid Minar,22.557,88.349,KOLKATA,6.7,Safe,7.0,3.0,4.0,HIGH,0.0,Coupled IDW,7,3,4
+95,Kurseong (St. Helen's School),26.883,88.281,DARJEELING,6.67,Safe,4.92,2.09,3.24,HIGH,0.0,IDW+Gradient,5,2,3
+96,Netaji Subhas Home (Kurseong),26.8815,88.279,DARJEELING,6.67,Safe,4.92,2.09,3.24,HIGH,0.0,IDW+Gradient,5,2,3
+97,Nehru Road,27.043,88.265,DARJEELING,6.65,Safe,5.72,2.83,3.13,HIGH,0.0,IDW+Gradient,6,3,3
+98,Darjeeling GPO,27.0428,88.2648,DARJEELING,6.65,Safe,5.72,2.83,3.13,HIGH,0.0,IDW+Gradient,6,3,3
+99,Theatre Road / Shakespeare Sarani,22.546,88.35,KOLKATA,6.6,Safe,8.0,4.0,4.0,HIGH,0.0,Coupled IDW,8,4,4
+100,Quest Mall Area (Park Street),22.547,88.353,KOLKATA,6.6,Safe,8.0,4.0,4.0,HIGH,0.0,Coupled IDW,8,4,4
+101,Puttabong Tea Estate,27.055,88.27,DARJEELING,6.57,Safe,3.17,1.12,3.12,HIGH,0.0,IDW+Gradient,3,1,3
+102,Arya Tea Estate,27.035,88.26,DARJEELING,6.56,Safe,3.17,1.13,3.13,HIGH,0.0,IDW+Gradient,3,1,3
+103,Ging Tea Estate,27.028,88.258,DARJEELING,6.56,Safe,3.17,1.14,3.13,HIGH,0.0,IDW+Gradient,3,1,3
+104,Tiger Hill,27.0122,88.283,DARJEELING,6.55,Safe,4.89,1.15,4.85,HIGH,0.0,IDW+Gradient,5,1,5
+105,Tumsong Tea Estate,27.0,88.255,DARJEELING,6.55,Safe,3.18,1.15,3.15,HIGH,0.0,IDW+Gradient,3,1,3
+106,Lamahatta,27.035,88.32,DARJEELING,6.55,Safe,4.04,1.15,4.0,HIGH,0.0,IDW+Gradient,4,1,4
+107,Singell Tea Estate,26.97,88.275,DARJEELING,6.53,Safe,3.2,1.18,3.18,HIGH,0.0,IDW+Gradient,3,1,3
+108,Namring Tea Estate,26.945,88.275,DARJEELING,6.52,Safe,3.2,1.19,3.19,HIGH,0.0,IDW+Gradient,3,1,3
+109,Okayti Tea Estate,26.895,88.19,DARJEELING,6.52,Safe,3.19,1.2,3.19,HIGH,0.0,IDW+Gradient,3,1,3
+110,Gopaldhara Tea Estate,26.884,88.181,DARJEELING,6.51,Safe,3.19,1.21,3.2,HIGH,0.0,IDW+Gradient,3,1,3
+111,Uttorayan Township,26.718,88.395,DARJEELING,6.51,Safe,6.7,3.07,4.24,HIGH,0.0,IDW+Gradient,7,3,4
+112,Happy Valley Tea Estate,27.042,88.256,DARJEELING,6.48,Moderate,4.02,1.98,3.12,HIGH,0.0,IDW+Gradient,4,2,3
+113,Jalapahar,27.035,88.27,DARJEELING,6.47,Moderate,4.88,1.98,3.98,HIGH,0.0,IDW+Gradient,5,2,4
+114,Dali Monastery Area,27.032,88.2695,DARJEELING,6.47,Moderate,4.03,1.99,3.14,HIGH,0.0,IDW+Gradient,4,2,3
+115,Ghoom Railway Station,27.021,88.2625,DARJEELING,6.47,Moderate,4.88,1.99,3.99,HIGH,0.0,IDW+Gradient,5,2,4
+116,Mirik (Devi Sthan),26.891,88.189,DARJEELING,6.43,Moderate,4.04,2.06,3.2,HIGH,0.0,IDW+Gradient,4,2,3
+117,Mirik (Bokar Monastery),26.892,88.185,DARJEELING,6.43,Moderate,4.04,2.05,3.19,HIGH,0.0,IDW+Gradient,4,2,3
+118,Mirik (Orange Valley Tea Estate),26.885,88.183,DARJEELING,6.43,Moderate,4.04,2.06,3.2,HIGH,0.0,IDW+Gradient,4,2,3
+119,Mirik (Krishnanagar),26.887,88.19,DARJEELING,6.43,Moderate,4.04,2.06,3.2,HIGH,0.0,IDW+Gradient,4,2,3
+120,Thurbo Tea Estate (Mirik),26.89,88.182,DARJEELING,6.43,Moderate,4.04,2.05,3.19,HIGH,0.0,IDW+Gradient,4,2,3
+121,Ambotia Tea Estate,26.885,88.282,DARJEELING,6.42,Moderate,4.07,2.09,3.24,HIGH,0.0,IDW+Gradient,4,2,3
+122,Giddapahar Tea Estate,26.876,88.277,DARJEELING,6.41,Moderate,4.07,2.09,3.24,HIGH,0.0,IDW+Gradient,4,2,3
+123,Makaibari Tea Estate,26.87,88.29,DARJEELING,6.41,Moderate,4.08,2.1,3.25,HIGH,0.0,IDW+Gradient,4,2,3
+124,Castleton Tea Estate Area,26.868,88.28,DARJEELING,6.41,Moderate,4.07,2.1,3.25,HIGH,0.0,IDW+Gradient,4,2,3
+125,Baghbazar Ghat,22.595,88.362,KOLKATA,6.4,Moderate,5.0,3.0,3.0,HIGH,0.0,Coupled IDW,5,3,3
+126,Ahiritola Ghat,22.5895,88.36,KOLKATA,6.4,Moderate,5.0,3.0,3.0,HIGH,0.0,Coupled IDW,5,3,3
+127,Dum Dum Airport,22.65,88.447,KOLKATA,6.4,Moderate,7.0,3.0,5.0,HIGH,0.0,Coupled IDW,7,3,5
+128,Dum Dum Cantonment,22.635,88.425,KOLKATA,6.4,Moderate,6.0,3.0,4.0,HIGH,0.0,Coupled IDW,6,3,4
+129,Bangur Avenue (Block B),22.604,88.397,KOLKATA,6.4,Moderate,6.0,3.0,4.0,HIGH,0.0,Coupled IDW,6,3,4
+130,Lake Gardens,22.508,88.362,KOLKATA,6.4,Moderate,6.0,3.0,4.0,HIGH,0.0,Coupled IDW,6,3,4
+131,Jodhpur Park,22.506,88.36,KOLKATA,6.4,Moderate,6.0,3.0,4.0,HIGH,0.0,Coupled IDW,6,3,4
+132,Golf Green,22.502,88.368,KOLKATA,6.4,Moderate,6.0,3.0,4.0,HIGH,0.0,Coupled IDW,6,3,4
+133,Jadavpur University Gate,22.497,88.371,KOLKATA,6.4,Moderate,6.0,3.0,4.0,HIGH,0.0,Coupled IDW,6,3,4
+134,Ruby General Hospital,22.517,88.401,KOLKATA,6.4,Moderate,7.0,3.0,5.0,HIGH,0.0,Coupled IDW,7,3,5
+135,Patuli (Floating Market),22.483,88.396,KOLKATA,6.4,Moderate,6.0,3.0,4.0,HIGH,0.0,Coupled IDW,6,3,4
+136,Narendrapur (Ashram Area),22.456,88.392,KOLKATA,6.4,Moderate,6.0,3.0,4.0,HIGH,0.0,Coupled IDW,6,3,4
+137,Nivedita Setu,22.635,88.36,KOLKATA,6.4,Moderate,7.0,3.0,5.0,HIGH,0.0,Coupled IDW,7,3,5
+138,Jatin Das Park,22.524,88.349,KOLKATA,6.4,Moderate,6.0,3.0,4.0,HIGH,0.0,Coupled IDW,6,3,4
+139,Laden La Road,27.0425,88.2655,DARJEELING,6.39,Moderate,5.72,2.83,3.98,HIGH,0.0,IDW+Gradient,6,3,4
+140,Tenzing Norgay Road (Upper),27.041,88.263,DARJEELING,6.39,Moderate,5.72,2.83,3.98,HIGH,0.0,IDW+Gradient,6,3,4
+141,Darjeeling Railway Station,27.038,88.2625,DARJEELING,6.39,Moderate,4.87,2.83,3.13,HIGH,0.0,IDW+Gradient,5,3,3
+142,Darjeeling Toy Train Yard,27.0375,88.263,DARJEELING,6.39,Moderate,4.87,2.83,3.13,HIGH,0.0,IDW+Gradient,5,3,3
+143,Sukna (Forest Area),26.785,88.335,DARJEELING,6.37,Moderate,4.96,2.16,4.17,HIGH,0.0,IDW+Gradient,5,2,4
+144,Kalimpong (Arts & Crafts),27.068,88.475,DARJEELING,6.37,Moderate,4.93,2.87,3.19,HIGH,0.0,IDW+Gradient,5,3,3
+145,Mirik (Town Center),26.889,88.187,DARJEELING,6.35,Moderate,4.89,2.91,3.2,HIGH,0.0,IDW+Gradient,5,3,3
+146,Mirik (Bus Stand),26.8895,88.1855,DARJEELING,6.35,Moderate,4.89,2.91,3.2,HIGH,0.0,IDW+Gradient,5,3,3
+147,Mirik (Market Area),26.8885,88.1875,DARJEELING,6.35,Moderate,4.89,2.91,3.2,HIGH,0.0,IDW+Gradient,5,3,3
+148,Dudhia / Bengal Safari,26.75,88.41,DARJEELING,6.35,Moderate,4.99,2.21,4.22,HIGH,0.0,IDW+Gradient,5,2,4
+149,Salugara Monastery,26.742,88.417,DARJEELING,6.34,Moderate,5.0,2.22,4.23,HIGH,0.0,IDW+Gradient,5,2,4
+150,Badamtam Tea Estate,27.055,88.25,DARJEELING,6.31,Moderate,3.17,1.12,3.96,HIGH,0.0,IDW+Gradient,3,1,4
+151,Free School Street,22.554,88.3555,KOLKATA,6.3,Moderate,7.0,4.0,4.0,HIGH,0.0,Coupled IDW,7,4,4
+152,Ballygunge,22.5285,88.3632,KOLKATA,6.3,Moderate,7.0,4.0,4.0,HIGH,0.0,Coupled IDW,7,4,4
+153,Bhowanipore,22.533,88.349,KOLKATA,6.3,Moderate,7.0,4.0,4.0,HIGH,0.0,Coupled IDW,7,4,4
+154,Sarat Bose Road,22.53,88.353,KOLKATA,6.3,Moderate,7.0,4.0,4.0,HIGH,0.0,Coupled IDW,7,4,4
+155,New Alipore,22.52,88.332,KOLKATA,6.3,Moderate,7.0,4.0,4.0,HIGH,0.0,Coupled IDW,7,4,4
+156,Senchal Lake,27.018,88.276,DARJEELING,6.3,Moderate,3.18,1.15,4.0,HIGH,0.0,IDW+Gradient,3,1,4
+157,Senchal Wildlife Sanctuary,27.02,88.278,DARJEELING,6.3,Moderate,3.18,1.15,4.0,HIGH,0.0,IDW+Gradient,3,1,4
+158,Lepchajagat,27.02,88.245,DARJEELING,6.3,Moderate,3.17,1.14,3.98,HIGH,0.0,IDW+Gradient,3,1,4
+159,Glenburn Tea Estate,27.01,88.31,DARJEELING,6.29,Moderate,3.2,1.16,4.02,HIGH,0.0,IDW+Gradient,3,1,4
+160,Jungpana Tea Estate,26.915,88.272,DARJEELING,6.26,Moderate,3.21,1.21,4.06,HIGH,0.0,IDW+Gradient,3,1,4
+161,ISKON Temple Road,26.7145,88.39,DARJEELING,6.25,Moderate,5.85,3.08,4.24,HIGH,0.0,IDW+Gradient,6,3,4
+162,Lebong,27.037,88.274,DARJEELING,6.22,Moderate,4.03,1.98,3.98,HIGH,0.0,IDW+Gradient,4,2,4
+163,Ganga Maya Park,27.031,88.273,DARJEELING,6.22,Moderate,4.03,1.99,3.99,HIGH,0.0,IDW+Gradient,4,2,4
+164,Takdah,27.045,88.335,DARJEELING,6.21,Moderate,4.04,2.0,4.0,HIGH,0.0,IDW+Gradient,4,2,4
+165,Delo Hill (Kalimpong),27.06,88.48,DARJEELING,6.2,Moderate,4.08,2.03,4.05,HIGH,0.0,IDW+Gradient,4,2,4
+166,Kalimpong (Durpin Dara),27.062,88.465,DARJEELING,6.2,Moderate,4.08,2.02,4.04,HIGH,0.0,IDW+Gradient,4,2,4
+167,Kalimpong (Deolo Hill),27.065,88.48,DARJEELING,6.2,Moderate,4.08,2.02,4.04,HIGH,0.0,IDW+Gradient,4,2,4
+168,Sonada (Tea Estate Area),26.958,88.273,DARJEELING,6.19,Moderate,4.05,2.04,4.03,HIGH,0.0,IDW+Gradient,4,2,4
+169,Dow Hill (Victoria Boys School),26.874,88.284,DARJEELING,6.16,Moderate,4.07,2.09,4.09,HIGH,0.0,IDW+Gradient,4,2,4
+170,Eagle Craig,26.878,88.275,DARJEELING,6.16,Moderate,4.07,2.09,4.09,HIGH,0.0,IDW+Gradient,4,2,4
+171,Chimney (Kurseong),26.877,88.276,DARJEELING,6.16,Moderate,4.07,2.09,4.09,HIGH,0.0,IDW+Gradient,4,2,4
+172,Gandhi Road (Upper),27.0415,88.2665,DARJEELING,6.14,Moderate,4.87,2.83,3.98,HIGH,0.0,IDW+Gradient,5,3,4
+173,Aloobari,27.048,88.258,DARJEELING,6.14,Moderate,4.02,2.82,3.12,HIGH,0.0,IDW+Gradient,4,3,3
+174,Singamari,27.0505,88.268,DARJEELING,6.14,Moderate,4.87,2.82,3.97,HIGH,0.0,IDW+Gradient,5,3,4
+175,Kalimpong (Town Center),27.066,88.471,DARJEELING,6.12,Moderate,4.93,2.87,4.04,HIGH,0.0,IDW+Gradient,5,3,4
+176,Kalimpong (Main Market / 10th Mile),27.067,88.472,DARJEELING,6.12,Moderate,4.93,2.87,4.04,HIGH,0.0,IDW+Gradient,5,3,4
+177,Anandapur,22.522,88.398,KOLKATA,6.1,Moderate,6.0,3.0,5.0,HIGH,0.0,Coupled IDW,6,3,5
+178,Joka (IIM Area),22.438,88.306,KOLKATA,6.1,Moderate,6.0,3.0,5.0,HIGH,0.0,Coupled IDW,6,3,5
+179,Maa Flyover (Park Circus),22.541,88.378,KOLKATA,6.1,Moderate,7.0,3.0,6.0,HIGH,0.0,Coupled IDW,7,3,6
+180,Jessore Road (Airport),22.64,88.44,KOLKATA,6.1,Moderate,7.0,3.0,6.0,HIGH,0.0,Coupled IDW,7,3,6
+181,Kurseong Railway Station,26.8815,88.2785,DARJEELING,6.08,Moderate,4.92,2.94,4.09,HIGH,0.0,IDW+Gradient,5,3,4
+182,Kurseong (Bus Stand),26.882,88.28,DARJEELING,6.08,Moderate,4.92,2.94,4.09,HIGH,0.0,IDW+Gradient,5,3,4
+183,Kurseong (Town Center),26.881,88.279,DARJEELING,6.07,Moderate,4.92,2.94,4.09,HIGH,0.0,IDW+Gradient,5,3,4
+184,Clock Tower / Supermarket,27.0418,88.2645,DARJEELING,6.05,Moderate,5.72,3.68,3.98,HIGH,0.0,IDW+Gradient,6,4,4
+185,Tiger Hill (Approach Road),27.015,88.281,DARJEELING,6.04,Moderate,4.04,1.15,5.7,HIGH,0.0,IDW+Gradient,4,1,6
+186,Tinchuley,27.038,88.34,DARJEELING,6.04,Moderate,3.2,1.15,4.86,HIGH,0.0,IDW+Gradient,3,1,5
+187,Chatakpur,27.025,88.31,DARJEELING,6.04,Moderate,3.19,1.15,4.86,HIGH,0.0,IDW+Gradient,3,1,5
+188,Lopchu,27.025,88.33,DARJEELING,6.04,Moderate,3.2,1.16,4.86,HIGH,0.0,IDW+Gradient,3,1,5
+189,Pashok,27.015,88.33,DARJEELING,6.03,Moderate,3.2,1.16,4.87,HIGH,0.0,IDW+Gradient,3,1,5
+190,Rishihat / Risheehat,27.01,88.32,DARJEELING,6.03,Moderate,3.2,1.16,4.87,HIGH,0.0,IDW+Gradient,3,1,5
+191,Lava,27.09,88.67,DARJEELING,6.01,Moderate,3.28,1.21,4.95,HIGH,0.0,IDW+Gradient,3,1,5
+192,Lolegaon,27.05,88.58,DARJEELING,6.01,Moderate,3.26,1.21,4.94,HIGH,0.0,IDW+Gradient,3,1,5
+193,Rishop,27.07,88.66,DARJEELING,6.01,Moderate,3.28,1.22,4.96,HIGH,0.0,IDW+Gradient,3,1,5
+194,BBD Bagh / Dalhousie Square,22.569,88.349,KOLKATA,6.0,Moderate,7.0,4.0,5.0,HIGH,0.0,Coupled IDW,7,4,5
+195,Waterloo Street,22.5655,88.3505,KOLKATA,6.0,Moderate,6.0,4.0,4.0,HIGH,0.0,Coupled IDW,6,4,4
+196,Babughat,22.562,88.344,KOLKATA,6.0,Moderate,6.0,4.0,4.0,HIGH,0.0,Coupled IDW,6,4,4
+197,Chowringhee Road (South),22.549,88.348,KOLKATA,6.0,Moderate,7.0,4.0,5.0,HIGH,0.0,Coupled IDW,7,4,5
+198,Lansdowne,22.52,88.348,KOLKATA,6.0,Moderate,6.0,4.0,4.0,HIGH,0.0,Coupled IDW,6,4,4
+199,Kasba (Peerless Hospital),22.513,88.385,KOLKATA,6.0,Moderate,6.0,4.0,4.0,HIGH,0.0,Coupled IDW,6,4,4
+200,Shibpur (IIEST Area),22.567,88.312,KOLKATA,6.0,Moderate,6.0,4.0,4.0,HIGH,0.0,Coupled IDW,6,4,4
+201,Exide Crossing,22.535,88.345,KOLKATA,6.0,Moderate,7.0,4.0,5.0,HIGH,0.0,Coupled IDW,7,4,5
+202,Golpark Post Office Crossing,22.52,88.361,KOLKATA,6.0,Moderate,7.0,4.0,5.0,HIGH,0.0,Coupled IDW,7,4,5
+203,Siliguri Bypass (West),26.71,88.36,DARJEELING,6.0,Moderate,6.69,3.07,5.93,HIGH,0.0,IDW+Gradient,7,3,6
+204,Milanpally,26.725,88.425,DARJEELING,6.0,Moderate,5.0,3.08,4.25,HIGH,0.0,IDW+Gradient,5,3,4
+205,Bagdogra (Bypass Road),26.69,88.34,DARJEELING,5.99,Moderate,6.69,3.08,5.94,HIGH,0.0,IDW+Gradient,7,3,6
+206,Lebong Cart Road,27.039,88.272,DARJEELING,5.97,Moderate,4.03,1.98,4.83,HIGH,0.0,IDW+Gradient,4,2,5
+207,Toong Soong,27.0395,88.2555,DARJEELING,5.97,Moderate,3.17,1.98,3.97,HIGH,0.0,IDW+Gradient,3,2,4
+208,Jalapahar Hill Road,27.034,88.271,DARJEELING,5.96,Moderate,4.03,1.99,4.83,HIGH,0.0,IDW+Gradient,4,2,5
+209,Rock Garden,27.03,88.272,DARJEELING,5.96,Moderate,4.03,1.99,4.84,HIGH,0.0,IDW+Gradient,4,2,5
+210,Sukhiapokhri,27.012,88.23,DARJEELING,5.96,Moderate,4.02,1.99,4.83,HIGH,0.0,IDW+Gradient,4,2,5
+211,Bijanbari,27.005,88.24,DARJEELING,5.96,Moderate,4.03,2.0,4.84,HIGH,0.0,IDW+Gradient,4,2,5
+212,Ghoom – Tiger Hill Road,27.018,88.275,DARJEELING,5.96,Moderate,4.03,2.0,4.85,HIGH,0.0,IDW+Gradient,4,2,5
+213,Dilaram,26.92,88.275,DARJEELING,5.92,Moderate,4.06,2.06,4.91,HIGH,0.0,IDW+Gradient,4,2,5
+214,Mahanadi,26.91,88.28,DARJEELING,5.92,Moderate,4.06,2.07,4.92,HIGH,0.0,IDW+Gradient,4,2,5
+215,Park Street (West End),22.5516,88.3522,KOLKATA,5.9,Moderate,8.0,5.0,5.0,HIGH,0.0,Coupled IDW,8,5,5
+216,Dow Hill,26.875,88.283,DARJEELING,5.9,Moderate,4.07,2.09,4.94,HIGH,0.0,IDW+Gradient,4,2,5
+217,Singamari (Market),27.051,88.269,DARJEELING,5.89,Moderate,4.02,2.82,3.97,HIGH,0.0,IDW+Gradient,4,3,4
+218,Rohini,26.84,88.3,DARJEELING,5.89,Moderate,4.09,2.12,4.97,HIGH,0.0,IDW+Gradient,4,2,5
+219,Tenzing Norgay Road (Middle),27.0385,88.261,DARJEELING,5.88,Moderate,4.87,2.83,4.83,HIGH,0.0,IDW+Gradient,5,3,5
+220,Ghoom (Hill Cart Road),27.023,88.263,DARJEELING,5.88,Moderate,4.88,2.84,4.84,HIGH,0.0,IDW+Gradient,5,3,5
+221,Gayaganga,26.83,88.305,DARJEELING,5.88,Moderate,4.09,2.13,4.98,HIGH,0.0,IDW+Gradient,4,2,5
+222,Rangtong,26.82,88.31,DARJEELING,5.88,Moderate,4.1,2.14,4.99,HIGH,0.0,IDW+Gradient,4,2,5
+223,Mirik (Pashupati Nagar),26.886,88.184,DARJEELING,5.83,Moderate,4.04,2.91,4.05,HIGH,0.0,IDW+Gradient,4,3,4
+224,Kurseong (Hill Cart Road),26.88,88.278,DARJEELING,5.82,Moderate,4.92,2.94,4.94,HIGH,0.0,IDW+Gradient,5,3,5
+225,EM Bypass – Ultadanga Entry,22.585,88.39,KOLKATA,5.8,Moderate,7.0,3.0,7.0,HIGH,0.0,Coupled IDW,7,3,7
+226,EM Bypass – Chingrighata,22.57,88.395,KOLKATA,5.8,Moderate,7.0,3.0,7.0,HIGH,0.0,Coupled IDW,7,3,7
+227,EM Bypass – Science City,22.5402,88.3964,KOLKATA,5.8,Moderate,7.0,3.0,7.0,HIGH,0.0,Coupled IDW,7,3,7
+228,EM Bypass – Acropolis Mall,22.508,88.397,KOLKATA,5.8,Moderate,7.0,3.0,7.0,HIGH,0.0,Coupled IDW,7,3,7
+229,Gandhi Road (Lower),27.04,88.267,DARJEELING,5.8,Moderate,4.87,3.68,3.98,HIGH,0.0,IDW+Gradient,5,4,4
+230,Sukna,26.79,88.34,DARJEELING,5.78,Moderate,4.96,3.01,5.02,HIGH,0.0,IDW+Gradient,5,3,5
+231,Sukna (Siliguri Side),26.755,88.345,DARJEELING,5.76,Moderate,4.97,3.04,5.05,HIGH,0.0,IDW+Gradient,5,3,5
+232,Salugara,26.74,88.415,DARJEELING,5.75,Moderate,5.0,3.07,5.08,HIGH,0.0,IDW+Gradient,5,3,5
+233,NH31 (Bagdogra–Siliguri),26.695,88.35,DARJEELING,5.74,Moderate,6.69,3.08,6.79,HIGH,0.0,IDW+Gradient,7,3,7
+234,Siliguri Bypass (East),26.7,88.45,DARJEELING,5.73,Moderate,6.72,3.1,6.82,HIGH,0.0,IDW+Gradient,7,3,7
+235,Siliguri Bypass (Matigara End),26.68,88.38,DARJEELING,5.73,Moderate,6.7,3.1,6.81,HIGH,0.0,IDW+Gradient,7,3,7
+236,New Jalpaiguri (NJP) Bypass,26.69,88.38,DARJEELING,5.73,Moderate,5.85,3.09,5.95,HIGH,0.0,IDW+Gradient,6,3,6
+237,Rangli Rangliot Tea Garden,27.028,88.275,DARJEELING,5.71,Moderate,3.18,1.99,4.84,HIGH,0.0,IDW+Gradient,3,2,5
+238,Hare Street,22.567,88.351,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+239,Mission Row,22.568,88.352,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+240,Strand Road (South),22.558,88.342,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+241,Outram Ghat,22.5685,88.346,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+242,College Street (North End),22.578,88.364,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+243,Baghbazar,22.5935,88.365,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+244,Pathuriaghata,22.583,88.36,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+245,Ahiritola,22.588,88.363,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+246,Galiff Street,22.589,88.366,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+247,Tala Park,22.597,88.369,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+248,Nimtala Ghat,22.587,88.358,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+249,Lake Town,22.5935,88.3935,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+250,Bangur Avenue,22.605,88.395,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+251,Kalighat,22.5205,88.343,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+252,Kalighat Temple Area,22.5195,88.341,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+253,Ballygunge Station,22.525,88.366,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+254,Bhowanipore (Market),22.532,88.351,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+255,Hazra (Road),22.5275,88.35,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+256,Hazra (T-Junction),22.528,88.352,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+257,Chetla,22.524,88.341,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+258,Chetla (Hat),22.525,88.343,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+259,Selimpur,22.508,88.354,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+260,Tollygunge (Studio Area),22.501,88.342,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+261,Dhakuria,22.51,88.365,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+262,Dhakuria (Bridge),22.511,88.368,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+263,SP Mukherjee Road,22.515,88.347,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+264,Prince Anwar Shah Road (West),22.501,88.365,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+265,Park Circus (Maidan),22.542,88.367,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+266,Beckbagan,22.537,88.365,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+267,Belur,22.613,88.354,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+268,Raja SC Mullick Road,22.504,88.364,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+269,Vivekananda Setu,22.626,88.356,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+270,Kavi Subhash (New Garia Metro),22.466,88.392,KOLKATA,5.7,Moderate,6.0,4.0,5.0,HIGH,0.0,Coupled IDW,6,4,5
+271,Lake Market,22.515,88.357,KOLKATA,5.7,Moderate,5.0,4.0,4.0,HIGH,0.0,Coupled IDW,5,4,4
+272,Pulbazar,27.003,88.25,DARJEELING,5.7,Moderate,3.18,2.0,4.85,HIGH,0.0,IDW+Gradient,3,2,5
+273,Rangbull,27.01,88.27,DARJEELING,5.7,Moderate,3.18,2.0,4.85,HIGH,0.0,IDW+Gradient,3,2,5
+274,Pokhriabong,27.005,88.25,DARJEELING,5.7,Moderate,3.18,2.0,4.85,HIGH,0.0,IDW+Gradient,3,2,5
+275,Palmajua,26.99,88.255,DARJEELING,5.69,Moderate,3.18,2.01,4.86,HIGH,0.0,IDW+Gradient,3,2,5
+276,Hashimara Entry Point,26.63,88.52,DARJEELING,5.69,Moderate,5.06,3.17,5.19,HIGH,0.0,IDW+Gradient,5,3,5
+277,Soureni (Mirik Road),26.875,88.22,DARJEELING,5.66,Moderate,3.2,2.07,4.92,HIGH,0.0,IDW+Gradient,3,2,5
+278,Tindharia (Railway Workshop),26.889,88.291,DARJEELING,5.65,Moderate,3.22,2.09,4.94,HIGH,0.0,IDW+Gradient,3,2,5
+279,Dow Hill Forest Road,26.873,88.285,DARJEELING,5.65,Moderate,3.22,2.09,4.95,HIGH,0.0,IDW+Gradient,3,2,5
+280,Pradhan Nagar,26.715,88.415,DARJEELING,5.65,Moderate,5.85,3.93,5.1,HIGH,0.0,IDW+Gradient,6,4,5
+281,NJP Railway Station,26.698,88.398,DARJEELING,5.65,Moderate,5.85,3.94,5.1,HIGH,0.0,IDW+Gradient,6,4,5
+282,Mall Road (Siliguri),26.716,88.42,DARJEELING,5.65,Moderate,5.85,3.93,5.1,HIGH,0.0,IDW+Gradient,6,4,5
+283,Tenzing Norgay Road (Lower),27.0365,88.259,DARJEELING,5.63,Moderate,4.02,2.83,4.83,HIGH,0.0,IDW+Gradient,4,3,5
+284,Rohini Road (Siliguri Approach),26.83,88.31,DARJEELING,5.63,Moderate,4.09,2.13,5.83,HIGH,0.0,IDW+Gradient,4,2,6
+285,Ghoom (Market Area),27.0215,88.264,DARJEELING,5.62,Moderate,4.03,2.84,4.84,HIGH,0.0,IDW+Gradient,4,3,5
+286,Jorebunglow,27.018,88.26,DARJEELING,5.62,Moderate,4.03,2.84,4.84,HIGH,0.0,IDW+Gradient,4,3,5
+287,Jorebunglow (Bus Stand),27.017,88.261,DARJEELING,5.62,Moderate,4.03,2.84,4.84,HIGH,0.0,IDW+Gradient,4,3,5
+288,Jorebunglow (Market),27.0175,88.2605,DARJEELING,5.62,Moderate,4.03,2.84,4.84,HIGH,0.0,IDW+Gradient,4,3,5
+289,Sukhiapokhri (Bazaar),27.0115,88.231,DARJEELING,5.62,Moderate,4.02,2.84,4.83,HIGH,0.0,IDW+Gradient,4,3,5
+290,Bijanbari (Market),27.0055,88.241,DARJEELING,5.62,Moderate,4.03,2.85,4.84,HIGH,0.0,IDW+Gradient,4,3,5
+291,Hill Cart Road (Darjeeling Exit),27.033,88.267,DARJEELING,5.62,Moderate,4.88,2.84,5.68,HIGH,0.0,IDW+Gradient,5,3,6
+292,Hill Cart Road (Below Ghoom),27.02,88.265,DARJEELING,5.62,Moderate,4.88,2.84,5.69,HIGH,0.0,IDW+Gradient,5,3,6
+293,Park Street (East End),22.553,88.359,KOLKATA,5.6,Moderate,7.0,5.0,5.0,HIGH,0.0,Coupled IDW,7,5,5
+294,Chowringhee Road (North),22.556,88.35,KOLKATA,5.6,Moderate,7.0,5.0,5.0,HIGH,0.0,Coupled IDW,7,5,5
+295,Sudder Street,22.555,88.3535,KOLKATA,5.6,Moderate,6.0,5.0,4.0,HIGH,0.0,Coupled IDW,6,5,4
+296,Central Metro Station,22.561,88.357,KOLKATA,5.6,Moderate,7.0,5.0,5.0,HIGH,0.0,Coupled IDW,7,5,5
+297,Esplanade Metro Hub,22.562,88.351,KOLKATA,5.6,Moderate,7.0,5.0,5.0,HIGH,0.0,Coupled IDW,7,5,5
+298,Sonada,26.96,88.27,DARJEELING,5.6,Moderate,4.05,2.88,4.88,HIGH,0.0,IDW+Gradient,4,3,5
+299,Sonada (Market),26.961,88.271,DARJEELING,5.6,Moderate,4.05,2.88,4.88,HIGH,0.0,IDW+Gradient,4,3,5
+300,Chowk Bazaar,27.04,88.268,DARJEELING,5.54,Moderate,4.02,3.68,3.98,HIGH,0.0,IDW+Gradient,4,4,4
+301,Chowk Bazaar (Market),27.0395,88.2685,DARJEELING,5.54,Moderate,4.03,3.68,3.98,HIGH,0.0,IDW+Gradient,4,4,4
+302,Tonglu (Base Camp Area),26.99,88.21,DARJEELING,5.53,Moderate,2.32,1.15,5.69,HIGH,0.0,IDW+Gradient,2,1,6
+303,Panighatta,26.81,88.32,DARJEELING,5.53,Moderate,4.1,2.99,5.0,HIGH,0.0,IDW+Gradient,4,3,5
+304,EM Bypass – Parama Island,22.53,88.394,KOLKATA,5.5,Moderate,7.0,3.0,8.0,HIGH,0.0,Coupled IDW,7,3,8
+305,EM Bypass – Ruby Hospital,22.5163,88.3988,KOLKATA,5.5,Moderate,7.0,3.0,8.0,HIGH,0.0,Coupled IDW,7,3,8
+306,Coronation Bridge / Sevoke Bridge,26.753,88.463,DARJEELING,5.49,Moderate,5.86,3.07,6.79,HIGH,0.0,IDW+Gradient,6,3,7
+307,Kurseong (Market Area),26.8805,88.2795,DARJEELING,5.48,Moderate,4.07,3.79,4.09,HIGH,0.0,IDW+Gradient,4,4,4
+308,Manebhanjyang,27.001,88.222,DARJEELING,5.45,Moderate,3.17,1.99,5.69,HIGH,0.0,IDW+Gradient,3,2,6
+309,Manebhanjyang (Sandakphu Gate),27.0005,88.2215,DARJEELING,5.45,Moderate,3.17,1.99,5.69,HIGH,0.0,IDW+Gradient,3,2,6
+310,Ghoom – Sukhiapokhri Road,27.016,88.25,DARJEELING,5.45,Moderate,3.18,1.99,5.69,HIGH,0.0,IDW+Gradient,3,2,6
+311,Gayabari,26.94,88.278,DARJEELING,5.42,Moderate,3.2,2.05,5.75,HIGH,0.0,IDW+Gradient,3,2,6
+312,Dhotre (NH55A),26.95,88.265,DARJEELING,5.42,Moderate,3.2,2.04,5.74,HIGH,0.0,IDW+Gradient,3,2,6
+313,Tung,26.93,88.28,DARJEELING,5.41,Moderate,3.21,2.06,5.76,HIGH,0.0,IDW+Gradient,3,2,6
+314,Mirik – Kurseong Road (Upper),26.883,88.21,DARJEELING,5.41,Moderate,3.2,2.07,5.76,HIGH,0.0,IDW+Gradient,3,2,6
+315,Champasari,26.735,88.41,DARJEELING,5.41,Moderate,5.0,3.92,5.08,HIGH,0.0,IDW+Gradient,5,4,5
+316,Kumartuli,22.5905,88.3617,KOLKATA,5.4,Moderate,4.0,4.0,4.0,HIGH,0.0,Coupled IDW,4,4,4
+317,College Street,22.5753,88.3636,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+318,Lake Town (Market),22.592,88.395,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+319,Kaikhali,22.625,88.435,KOLKATA,5.4,Moderate,6.0,4.0,6.0,HIGH,0.0,Coupled IDW,6,4,6
+320,VIP Road (Keshtopur),22.606,88.42,KOLKATA,5.4,Moderate,6.0,4.0,6.0,HIGH,0.0,Coupled IDW,6,4,6
+321,VIP Road (Baguiati),22.613,88.428,KOLKATA,5.4,Moderate,6.0,4.0,6.0,HIGH,0.0,Coupled IDW,6,4,6
+322,Birati,22.644,88.435,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+323,Jadavpur,22.499,88.3714,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+324,Jadavpur (Sulekha),22.493,88.366,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+325,Prince Anwar Shah Road (East),22.5,88.375,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+326,Santoshpur,22.499,88.395,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+327,Patuli,22.486,88.394,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+328,Baishnabghata,22.481,88.392,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+329,Narayantala,22.478,88.396,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+330,Thakurpukur (Hospital Area),22.458,88.318,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+331,Joka Tram Depot,22.443,88.307,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+332,Baghajatin,22.488,88.378,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+333,Naktala,22.485,88.373,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+334,Narendrapur,22.454,88.39,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+335,Rajpur,22.425,88.405,KOLKATA,5.4,Moderate,4.0,4.0,4.0,HIGH,0.0,Coupled IDW,4,4,4
+336,Subhasgram,22.415,88.41,KOLKATA,5.4,Moderate,4.0,4.0,4.0,HIGH,0.0,Coupled IDW,4,4,4
+337,Jessore Road (Nagerbazar),22.612,88.402,KOLKATA,5.4,Moderate,6.0,4.0,6.0,HIGH,0.0,Coupled IDW,6,4,6
+338,South City Mall Area,22.5,88.37,KOLKATA,5.4,Moderate,5.0,4.0,5.0,HIGH,0.0,Coupled IDW,5,4,5
+339,Pagla Jhora,26.9,88.285,DARJEELING,5.4,Moderate,3.22,2.08,5.78,HIGH,0.0,IDW+Gradient,3,2,6
+340,Tindharia,26.89,88.29,DARJEELING,5.4,Moderate,3.22,2.08,5.79,HIGH,0.0,IDW+Gradient,3,2,6
+341,Mirik – Kurseong Road (Middle),26.88,88.23,DARJEELING,5.4,Moderate,3.21,2.07,5.77,HIGH,0.0,IDW+Gradient,3,2,6
+342,Mirik – Kurseong Road (Lower),26.879,88.25,DARJEELING,5.4,Moderate,3.21,2.08,5.78,HIGH,0.0,IDW+Gradient,3,2,6
+343,Sevoke Road,26.725,88.44,DARJEELING,5.4,Moderate,5.86,3.93,5.95,HIGH,0.0,IDW+Gradient,6,4,6
+344,Dagapur,26.73,88.42,DARJEELING,5.4,Moderate,5.0,3.92,5.09,HIGH,0.0,IDW+Gradient,5,4,5
+345,Pradhan Nagar (Market Area),26.714,88.416,DARJEELING,5.4,Moderate,5.0,3.93,5.1,HIGH,0.0,IDW+Gradient,5,4,5
+346,NJP Station Road,26.7,88.4,DARJEELING,5.4,Moderate,5.0,3.94,5.1,HIGH,0.0,IDW+Gradient,5,4,5
+347,Bagdogra (Town),26.685,88.335,DARJEELING,5.4,Moderate,4.99,3.93,5.09,HIGH,0.0,IDW+Gradient,5,4,5
+348,Siliguri (Ghoshpukur),26.72,88.405,DARJEELING,5.4,Moderate,5.0,3.93,5.09,HIGH,0.0,IDW+Gradient,5,4,5
+349,Siliguri (Dabgram),26.705,88.38,DARJEELING,5.4,Moderate,5.0,3.93,5.09,HIGH,0.0,IDW+Gradient,5,4,5
+350,Siliguri (Hakim Para),26.718,88.41,DARJEELING,5.4,Moderate,5.0,3.93,5.09,HIGH,0.0,IDW+Gradient,5,4,5
+351,Mirik–Siliguri Road (Upper),26.86,88.21,DARJEELING,5.4,Moderate,3.21,2.08,5.77,HIGH,0.0,IDW+Gradient,3,2,6
+352,Kadamtala (Siliguri),26.705,88.41,DARJEELING,5.4,Moderate,5.0,3.94,5.1,HIGH,0.0,IDW+Gradient,5,4,5
+353,Kawakhali,26.715,88.43,DARJEELING,5.4,Moderate,5.01,3.94,5.1,HIGH,0.0,IDW+Gradient,5,4,5
+354,Khaprail,26.71,88.375,DARJEELING,5.4,Moderate,4.99,3.92,5.09,HIGH,0.0,IDW+Gradient,5,4,5
+355,NH31 (Islampur Direction),26.67,88.35,DARJEELING,5.39,Moderate,5.85,3.94,5.95,HIGH,0.0,IDW+Gradient,6,4,6
+356,Burdwan Road (Siliguri),26.71,88.44,DARJEELING,5.39,Moderate,5.01,3.94,5.11,HIGH,0.0,IDW+Gradient,5,4,5
+357,Rohini Road (Kurseong Side),26.85,88.295,DARJEELING,5.38,Moderate,3.23,2.11,5.81,HIGH,0.0,IDW+Gradient,3,2,6
+358,Mirik–Siliguri Road (Middle),26.83,88.25,DARJEELING,5.38,Moderate,3.22,2.11,5.81,HIGH,0.0,IDW+Gradient,3,2,6
+359,Pankhabari Road (Middle),26.78,88.33,DARJEELING,5.35,Moderate,3.26,2.17,5.87,HIGH,0.0,IDW+Gradient,3,2,6
+360,Hill Cart Road (Sonada Approach),26.97,88.268,DARJEELING,5.34,Moderate,4.04,2.88,5.73,HIGH,0.0,IDW+Gradient,4,3,6
+361,NH10 (Teesta Bridge),26.78,88.46,DARJEELING,5.33,Moderate,4.15,2.2,6.77,HIGH,0.0,IDW+Gradient,4,2,7
+362,City Centre (Siliguri),26.716,88.425,DARJEELING,5.31,Moderate,5.86,4.78,5.1,HIGH,0.0,IDW+Gradient,6,5,5
+363,Esplanade,22.5639,88.3525,KOLKATA,5.3,Moderate,7.0,5.0,6.0,HIGH,0.0,Coupled IDW,7,5,6
+364,Mahanayak Uttam Kumar Metro,22.501,88.345,KOLKATA,5.3,Moderate,6.0,5.0,5.0,HIGH,0.0,Coupled IDW,6,5,5
+365,Hill Cart Road (Below Kurseong),26.86,88.29,DARJEELING,5.3,Moderate,4.08,2.95,5.81,HIGH,0.0,IDW+Gradient,4,3,6
+366,Sandakphu Approach (Lower),26.98,88.205,DARJEELING,5.27,Moderate,2.32,1.15,6.54,HIGH,0.0,IDW+Gradient,2,1,7
+367,Mirik–Siliguri Road (Lower),26.78,88.3,DARJEELING,5.27,Moderate,4.1,3.01,5.86,HIGH,0.0,IDW+Gradient,4,3,6
+368,Tumling,26.968,88.2,DARJEELING,5.27,Moderate,2.32,1.16,6.55,HIGH,0.0,IDW+Gradient,2,1,7
+369,Tonglu Trek Route,26.98,88.208,DARJEELING,5.27,Moderate,2.32,1.15,6.55,HIGH,0.0,IDW+Gradient,2,1,7
+370,Singalila Ridge (Lower Point),26.96,88.195,DARJEELING,5.27,Moderate,2.32,1.16,6.55,HIGH,0.0,IDW+Gradient,2,1,7
+371,Pankhabari Road (Lower),26.76,88.35,DARJEELING,5.25,Moderate,4.12,3.04,5.89,HIGH,0.0,IDW+Gradient,4,3,6
+372,Sevoke (Bridge Area),26.75,88.46,DARJEELING,5.24,Moderate,5.01,3.07,6.79,HIGH,0.0,IDW+Gradient,5,3,7
+373,Teesta Bazaar,26.76,88.465,DARJEELING,5.24,Moderate,4.16,3.07,5.94,HIGH,0.0,IDW+Gradient,4,3,6
+374,Rangpo Road (Entry NH10),26.755,88.47,DARJEELING,5.24,Moderate,5.01,3.07,6.79,HIGH,0.0,IDW+Gradient,5,3,7
+375,NH10 (Sevoke-Kalimpong Split),26.76,88.468,DARJEELING,5.24,Moderate,5.01,3.07,6.79,HIGH,0.0,IDW+Gradient,5,3,7
+376,Darjeeling–Kalimpong Rd (Teesta Valley),27.03,88.35,DARJEELING,5.19,Moderate,3.2,2.01,6.57,HIGH,0.0,IDW+Gradient,3,2,7
+377,Teesta Valley Road,27.02,88.36,DARJEELING,5.18,Moderate,3.21,2.02,6.58,HIGH,0.0,IDW+Gradient,3,2,7
+378,Naxalbari,26.68,88.22,DARJEELING,5.16,Moderate,4.11,3.9,5.05,HIGH,0.0,IDW+Gradient,4,4,5
+379,NH31 (Naxalbari Approach),26.66,88.25,DARJEELING,5.15,Moderate,4.97,3.92,5.92,HIGH,0.0,IDW+Gradient,5,4,6
+380,Hill Cart Road (Sevoke More),26.72,88.435,DARJEELING,5.14,Moderate,5.86,3.93,6.8,HIGH,0.0,IDW+Gradient,6,4,7
+381,Darjeeling More,26.708,88.405,DARJEELING,5.14,Moderate,5.0,3.93,5.95,HIGH,0.0,IDW+Gradient,5,4,6
+382,Saktigarh,26.705,88.435,DARJEELING,5.14,Moderate,5.01,3.94,5.96,HIGH,0.0,IDW+Gradient,5,4,6
+383,Ashighar More,26.7,88.41,DARJEELING,5.14,Moderate,5.01,3.94,5.96,HIGH,0.0,IDW+Gradient,5,4,6
+384,Matigara,26.685,88.4,DARJEELING,5.13,Moderate,5.01,3.95,5.96,HIGH,0.0,IDW+Gradient,5,4,6
+385,Matigara (Checkpost),26.683,88.395,DARJEELING,5.13,Moderate,5.01,3.95,5.96,HIGH,0.0,IDW+Gradient,5,4,6
+386,Fulbari Checkpost (NH31),26.67,88.37,DARJEELING,5.13,Moderate,5.0,3.95,5.96,HIGH,0.0,IDW+Gradient,5,4,6
+387,NH31 (Matigara Section),26.68,88.39,DARJEELING,5.13,Moderate,5.86,3.95,6.81,HIGH,0.0,IDW+Gradient,6,4,7
+388,Phulbari,26.66,88.35,DARJEELING,5.13,Moderate,4.15,3.95,5.11,HIGH,0.0,IDW+Gradient,4,4,5
+389,NH31 (Phansidewa),26.63,88.32,DARJEELING,5.12,Moderate,5.0,3.96,5.97,HIGH,0.0,IDW+Gradient,5,4,6
+390,Pankhabari Road (Upper Kurseong),26.82,88.3,DARJEELING,5.11,Moderate,3.24,2.13,6.69,HIGH,0.0,IDW+Gradient,3,2,7
+391,Madhyamgram,22.67,88.455,KOLKATA,5.1,Moderate,5.0,4.0,6.0,HIGH,0.0,Coupled IDW,5,4,6
+392,EM Bypass – Mukundapur,22.489,88.399,KOLKATA,5.1,Moderate,6.0,4.0,7.0,HIGH,0.0,Coupled IDW,6,4,7
+393,EM Bypass – Kamalgazi,22.463,88.406,KOLKATA,5.1,Moderate,6.0,4.0,7.0,HIGH,0.0,Coupled IDW,6,4,7
+394,EM Bypass – Garia Station,22.468,88.4,KOLKATA,5.1,Moderate,6.0,4.0,7.0,HIGH,0.0,Coupled IDW,6,4,7
+395,Jessore Road (Madhyamgram),22.67,88.455,KOLKATA,5.1,Moderate,5.0,4.0,6.0,HIGH,0.0,Coupled IDW,5,4,6
+396,Kalijhora,26.77,88.47,DARJEELING,5.07,Moderate,3.31,2.21,6.78,HIGH,0.0,IDW+Gradient,3,2,7
+397,Siliguri Town Station,26.718,88.42,DARJEELING,5.06,Moderate,5.0,4.78,5.1,HIGH,0.0,IDW+Gradient,5,5,5
+398,Hill Cart Road (Siliguri Central),26.712,88.43,DARJEELING,5.06,Moderate,5.86,4.79,5.96,HIGH,0.0,IDW+Gradient,6,5,6
+399,Bidhan Road (Siliguri),26.713,88.423,DARJEELING,5.06,Moderate,5.01,4.79,5.1,HIGH,0.0,IDW+Gradient,5,5,5
+400,Bidhan Market,26.7135,88.424,DARJEELING,5.06,Moderate,5.01,4.79,5.1,HIGH,0.0,IDW+Gradient,5,5,5
+401,Panitanki Road,26.708,88.42,DARJEELING,5.06,Moderate,5.01,4.79,5.1,HIGH,0.0,IDW+Gradient,5,5,5
+402,Siliguri Junction (Railway),26.71,88.428,DARJEELING,5.05,Moderate,5.86,4.79,5.96,HIGH,0.0,IDW+Gradient,6,5,6
+403,Maneybhanjang – Sandakphu Jeep Rd,26.97,88.205,DARJEELING,5.01,Moderate,2.32,1.16,7.4,HIGH,0.0,IDW+Gradient,2,1,8
+404,Dharmatala / Lenin Sarani,22.56,88.351,KOLKATA,5.0,Moderate,6.0,5.0,6.0,HIGH,0.0,Coupled IDW,6,5,6
+405,Tiretti Bazaar (Chinatown),22.572,88.3575,KOLKATA,5.0,Moderate,4.0,5.0,4.0,HIGH,0.0,Coupled IDW,4,5,4
+406,Lal Bazaar,22.571,88.354,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+407,Chandni Chowk,22.566,88.356,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+408,Bentinck Street,22.565,88.353,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+409,Strand Road (North),22.575,88.345,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+410,Sovabazar,22.584,88.3622,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+411,Hatibagan,22.588,88.368,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+412,Phoolbagan,22.572,88.385,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+413,Ultadanga,22.583,88.387,KOLKATA,5.0,Moderate,6.0,5.0,6.0,HIGH,0.0,Coupled IDW,6,5,6
+414,Maniktala,22.587,88.38,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+415,Cossipore (Arsenal Area),22.604,88.366,KOLKATA,5.0,Moderate,4.0,5.0,4.0,HIGH,0.0,Coupled IDW,4,5,4
+416,Jorasanko,22.582,88.361,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+417,Jorabagan,22.5845,88.361,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+418,Belgachia,22.599,88.373,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+419,Sinthee,22.608,88.378,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+420,Baranagar,22.636,88.376,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+421,Baranagar (Riverside),22.638,88.372,KOLKATA,5.0,Moderate,4.0,5.0,4.0,HIGH,0.0,Coupled IDW,4,5,4
+422,Rashbehari Avenue (West),22.518,88.356,KOLKATA,5.0,Moderate,6.0,5.0,6.0,HIGH,0.0,Coupled IDW,6,5,6
+423,Ballygunge Phari,22.526,88.364,KOLKATA,5.0,Moderate,6.0,5.0,6.0,HIGH,0.0,Coupled IDW,6,5,6
+424,Tollygunge,22.4985,88.3476,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+425,Tollygunge Metro / Phari,22.499,88.3445,KOLKATA,5.0,Moderate,6.0,5.0,6.0,HIGH,0.0,Coupled IDW,6,5,6
+426,NSC Bose Road (South),22.495,88.347,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+427,Kasba,22.512,88.382,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+428,Parnasree,22.473,88.31,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+429,Parnasree Pally,22.47,88.312,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+430,Regent Park,22.476,88.305,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+431,Topsia (Flyover),22.547,88.388,KOLKATA,5.0,Moderate,6.0,5.0,6.0,HIGH,0.0,Coupled IDW,6,5,6
+432,Picnic Garden,22.532,88.383,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+433,Baghajatin (Market),22.487,88.38,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+434,Shibpur,22.57,88.315,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+435,Santragachi,22.572,88.299,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+436,Santragachi (Station),22.573,88.301,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+437,Salkia,22.587,88.352,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+438,Liluah,22.608,88.349,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+439,AJC Bose Road (West End),22.557,88.347,KOLKATA,5.0,Moderate,6.0,5.0,6.0,HIGH,0.0,Coupled IDW,6,5,6
+440,AJC Bose Road (Moulali),22.561,88.362,KOLKATA,5.0,Moderate,6.0,5.0,6.0,HIGH,0.0,Coupled IDW,6,5,6
+441,CIT Road (West),22.567,88.376,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+442,CIT Road (East),22.57,88.382,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+443,APC Road (Shyambazar End),22.595,88.366,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+444,Bidhan Sarani (Central),22.58,88.363,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+445,Bidhan Sarani (College St End),22.576,88.364,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+446,Majerhat Station,22.51,88.33,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+447,Khanna Cinema (Gariahat),22.518,88.365,KOLKATA,5.0,Moderate,5.0,5.0,5.0,HIGH,0.0,Coupled IDW,5,5,5
+448,New Market / Hogg Market,22.5585,88.3545,KOLKATA,4.9,Caution,6.0,6.0,5.0,HIGH,0.0,Coupled IDW,6,6,5
+449,Station Feeder Road,26.711,88.429,DARJEELING,4.8,Caution,5.01,4.79,5.96,HIGH,0.0,IDW+Gradient,5,5,6
+450,Shyambazar (Market Area),22.593,88.37,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+451,Maniktala (Market),22.586,88.381,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+452,Cossipore,22.602,88.369,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+453,Beadon Street,22.586,88.366,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+454,Tala,22.596,88.368,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+455,Sinthee More,22.61,88.38,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+456,Chitpur,22.588,88.359,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+457,Chitpur (Lock Gate),22.591,88.358,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+458,Dum Dum,22.6226,88.4188,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+459,Dum Dum Junction,22.627,88.42,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+460,Nagerbazar,22.61,88.4,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+461,Barasat (Entry Point),22.705,88.47,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+462,Agarpara,22.656,88.385,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+463,Kamarhati,22.665,88.375,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+464,Khardah,22.72,88.38,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+465,Rashbehari Avenue (Crossing),22.5185,88.362,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+466,Gariahat (Market Area),22.5195,88.3666,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+467,Gariahat (Flyover),22.52,88.368,KOLKATA,4.7,Caution,6.0,5.0,7.0,HIGH,0.0,Coupled IDW,6,5,7
+468,Jadavpur 8B Bus Stand,22.496,88.37,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+469,Behala (Silpara),22.478,88.313,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+470,Thakurpukur,22.46,88.316,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+471,Joka,22.446,88.31,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+472,Taratala,22.515,88.323,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+473,Taratala (Industrial),22.513,88.32,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+474,Sakherbazar,22.484,88.312,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+475,Barisha,22.475,88.316,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+476,Haridevpur,22.465,88.32,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+477,Tangra,22.553,88.388,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+478,Topsia,22.545,88.386,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+479,Park Circus 7-Point Crossing,22.54,88.369,KOLKATA,4.7,Caution,6.0,5.0,7.0,HIGH,0.0,Coupled IDW,6,5,7
+480,Park Circus Station,22.541,88.372,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+481,Narkeldanga (Main Rd),22.576,88.381,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+482,Garia,22.473,88.383,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+483,Garia (Hat Area),22.471,88.385,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+484,Sonarpur,22.439,88.403,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+485,Sonarpur Station,22.438,88.401,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+486,Harinavi,22.445,88.396,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+487,Baruipur (Entry),22.37,88.43,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+488,Bally,22.645,88.345,KOLKATA,4.7,Caution,4.0,5.0,5.0,HIGH,0.0,Coupled IDW,4,5,5
+489,AJC Bose Road (East End),22.562,88.368,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+490,BT Road (Shyambazar),22.594,88.373,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+491,BT Road (Chiria More),22.62,88.382,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+492,DH Road (New Alipore),22.52,88.324,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+493,DH Road (Joka),22.45,88.312,KOLKATA,4.7,Caution,5.0,5.0,6.0,HIGH,0.0,Coupled IDW,5,5,6
+494,Sevoke More (Junction),26.722,88.438,DARJEELING,4.55,Caution,5.01,4.78,6.8,HIGH,0.0,IDW+Gradient,5,5,7
+495,Tinbatti More,26.71,88.415,DARJEELING,4.55,Caution,5.0,4.79,6.8,HIGH,0.0,IDW+Gradient,5,5,7
+496,Khalpara,26.705,88.425,DARJEELING,4.46,Caution,4.16,5.64,5.11,HIGH,0.0,IDW+Gradient,4,6,5
+497,Shyambazar 5-Point Crossing,22.592,88.372,KOLKATA,4.4,Caution,5.0,5.0,7.0,HIGH,0.0,Coupled IDW,5,5,7
+498,Belgharia,22.648,88.39,KOLKATA,4.4,Caution,4.0,5.0,6.0,HIGH,0.0,Coupled IDW,4,5,6
+499,Belgharia Station,22.65,88.388,KOLKATA,4.4,Caution,4.0,5.0,6.0,HIGH,0.0,Coupled IDW,4,5,6
+500,Tangra (Leather Complex),22.555,88.391,KOLKATA,4.4,Caution,3.0,5.0,5.0,HIGH,0.0,Coupled IDW,3,5,5
+501,Garia Station Area,22.47,88.38,KOLKATA,4.4,Caution,4.0,5.0,6.0,HIGH,0.0,Coupled IDW,4,5,6
+502,BT Road (Dunlop Bridge),22.638,88.387,KOLKATA,4.4,Caution,5.0,5.0,7.0,HIGH,0.0,Coupled IDW,5,5,7
+503,BT Road (Kamarhati),22.66,88.378,KOLKATA,4.4,Caution,4.0,5.0,6.0,HIGH,0.0,Coupled IDW,4,5,6
+504,Majerhat (Bridge Area),22.512,88.328,KOLKATA,4.4,Caution,4.0,5.0,6.0,HIGH,0.0,Coupled IDW,4,5,6
+505,Bow Bazaar,22.57,88.36,KOLKATA,4.3,Caution,4.0,6.0,5.0,HIGH,0.0,Coupled IDW,4,6,5
+506,Rajabazar,22.577,88.375,KOLKATA,4.3,Caution,4.0,6.0,5.0,HIGH,0.0,Coupled IDW,4,6,5
+507,Entally (East),22.565,88.378,KOLKATA,4.3,Caution,4.0,6.0,5.0,HIGH,0.0,Coupled IDW,4,6,5
+508,Girish Park,22.581,88.364,KOLKATA,4.3,Caution,4.0,6.0,5.0,HIGH,0.0,Coupled IDW,4,6,5
+509,Behala (Manton),22.486,88.317,KOLKATA,4.3,Caution,4.0,6.0,5.0,HIGH,0.0,Coupled IDW,4,6,5
+510,Garden Reach,22.533,88.315,KOLKATA,4.3,Caution,4.0,6.0,5.0,HIGH,0.0,Coupled IDW,4,6,5
+511,Garden Reach Shipyard Area,22.536,88.312,KOLKATA,4.3,Caution,4.0,6.0,5.0,HIGH,0.0,Coupled IDW,4,6,5
+512,Tiljala,22.538,88.381,KOLKATA,4.3,Caution,4.0,6.0,5.0,HIGH,0.0,Coupled IDW,4,6,5
+513,Tiljala (Station Area),22.536,88.38,KOLKATA,4.3,Caution,4.0,6.0,5.0,HIGH,0.0,Coupled IDW,4,6,5
+514,Narkeldanga,22.575,88.38,KOLKATA,4.3,Caution,4.0,6.0,5.0,HIGH,0.0,Coupled IDW,4,6,5
+515,Howrah Maidan,22.5877,88.337,KOLKATA,4.3,Caution,5.0,6.0,6.0,HIGH,0.0,Coupled IDW,5,6,6
+516,Kadamtala (Howrah),22.581,88.34,KOLKATA,4.3,Caution,5.0,6.0,6.0,HIGH,0.0,Coupled IDW,5,6,6
+517,Howrah Bridge (Rabindra Setu),22.5851,88.3468,KOLKATA,4.3,Caution,6.0,6.0,7.0,HIGH,0.0,Coupled IDW,6,6,7
+518,Entally,22.566,88.374,KOLKATA,4.0,Caution,4.0,6.0,6.0,HIGH,0.0,Coupled IDW,4,6,6
+519,Posta,22.579,88.3585,KOLKATA,4.0,Caution,3.0,6.0,5.0,HIGH,0.0,Coupled IDW,3,6,5
+520,Mechhua Bazaar,22.576,88.3605,KOLKATA,4.0,Caution,3.0,6.0,5.0,HIGH,0.0,Coupled IDW,3,6,5
+521,Behala,22.489,88.3186,KOLKATA,4.0,Caution,4.0,6.0,6.0,HIGH,0.0,Coupled IDW,4,6,6
+522,Behala Chowrasta,22.482,88.315,KOLKATA,4.0,Caution,4.0,6.0,6.0,HIGH,0.0,Coupled IDW,4,6,6
+523,Maheshtala,22.505,88.296,KOLKATA,4.0,Caution,3.0,6.0,5.0,HIGH,0.0,Coupled IDW,3,6,5
+524,Budge Budge Entry,22.482,88.285,KOLKATA,4.0,Caution,3.0,6.0,5.0,HIGH,0.0,Coupled IDW,3,6,5
+525,DH Road (Behala),22.49,88.318,KOLKATA,4.0,Caution,4.0,6.0,6.0,HIGH,0.0,Coupled IDW,4,6,6
+526,Khidderpore Dock Area,22.538,88.32,KOLKATA,3.9,Caution,4.0,7.0,5.0,HIGH,0.0,Coupled IDW,4,7,5
+527,Sealdah Station,22.5682,88.3741,KOLKATA,3.7,Caution,4.0,6.0,7.0,HIGH,0.0,Coupled IDW,4,6,7
+528,Sealdah (Market Area),22.569,88.376,KOLKATA,3.7,Caution,3.0,6.0,6.0,HIGH,0.0,Coupled IDW,3,6,6
+529,Diamond Harbour Rd (Mominpur),22.528,88.32,KOLKATA,3.6,Caution,4.0,7.0,6.0,HIGH,0.0,Coupled IDW,4,7,6
+530,Khidderpore,22.5367,88.3232,KOLKATA,3.6,Caution,4.0,7.0,6.0,HIGH,0.0,Coupled IDW,4,7,6
+531,Metiabruz,22.522,88.305,KOLKATA,3.6,Caution,3.0,7.0,5.0,HIGH,0.0,Coupled IDW,3,7,5
+532,Metiabruz (East),22.523,88.31,KOLKATA,3.6,Caution,3.0,7.0,5.0,HIGH,0.0,Coupled IDW,3,7,5
+533,Howrah Station West,22.5836,88.3429,KOLKATA,3.6,Caution,5.0,7.0,7.0,HIGH,0.0,Coupled IDW,5,7,7
+534,Howrah Station East,22.585,88.345,KOLKATA,3.6,Caution,5.0,7.0,7.0,HIGH,0.0,Coupled IDW,5,7,7
+535,Burrabazar (Central),22.5774,88.3615,KOLKATA,3.3,High Risk,3.0,7.0,6.0,HIGH,0.0,Coupled IDW,3,7,6
+536,Burrabazar (East),22.577,88.365,KOLKATA,3.3,High Risk,3.0,7.0,6.0,HIGH,0.0,Coupled IDW,3,7,6
