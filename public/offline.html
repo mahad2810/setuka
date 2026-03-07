@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setuka - Offline</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            padding: 2rem;
+        }
+        .icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+        }
+        h1 {
+            margin: 0 0 1rem;
+            font-size: 1.5rem;
+        }
+        p {
+            margin: 0 0 2rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+        button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <img src="/SetUva-logo.png" alt="Setuka Logo" style="width: 60px; height: 60px; object-fit: contain;">
+        </div>
+        <h1>You're Offline</h1>
+        <p>Setuka is designed to work offline. Your safety features are still available, and we'll sync your data when you're back online.</p>
+        <button onclick="window.location.reload()">Try Again</button>
+    </div>
+</body>
+</html>

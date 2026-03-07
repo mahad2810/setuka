@@ -1,0 +1,295 @@
+place_name,latitude,longitude,road_rating,crime_rating,accident_rating
+Esplanade,22.5639,88.3525,7,5,6
+Park Street (West End),22.5516,88.3522,8,5,5
+Park Street (East End),22.553,88.359,7,5,5
+Dharmatala / Lenin Sarani,22.56,88.351,6,5,6
+New Market / Hogg Market,22.5585,88.3545,6,6,5
+Maidan (Central),22.548,88.343,8,3,3
+Maidan (South),22.542,88.34,8,3,3
+Fort William Area,22.558,88.338,9,1,2
+Victoria Memorial,22.5448,88.3426,8,2,2
+Bow Bazaar,22.57,88.36,4,6,5
+Tiretti Bazaar (Chinatown),22.572,88.3575,4,5,4
+BBD Bagh / Dalhousie Square,22.569,88.349,7,4,5
+Lal Bazaar,22.571,88.354,5,5,5
+Chandni Chowk,22.566,88.356,5,5,5
+Hare Street,22.567,88.351,6,4,5
+Mission Row,22.568,88.352,6,4,5
+Bentinck Street,22.565,88.353,5,5,5
+Waterloo Street,22.5655,88.3505,6,4,4
+Strand Road (North),22.575,88.345,5,5,5
+Strand Road (South),22.558,88.342,6,4,5
+Princep Ghat,22.556,88.337,7,3,3
+Millennium Park,22.564,88.345,8,3,3
+Babughat,22.562,88.344,6,4,4
+Outram Ghat,22.5685,88.346,6,4,5
+Chowringhee Road (North),22.556,88.35,7,5,5
+Chowringhee Road (South),22.549,88.348,7,4,5
+Free School Street,22.554,88.3555,7,4,4
+Sudder Street,22.555,88.3535,6,5,4
+Theatre Road / Shakespeare Sarani,22.546,88.35,8,4,4
+Sovabazar,22.584,88.3622,5,5,5
+Shyambazar 5-Point Crossing,22.592,88.372,5,5,7
+Shyambazar (Market Area),22.593,88.37,4,5,5
+Kumartuli,22.5905,88.3617,4,4,4
+College Street,22.5753,88.3636,5,4,5
+College Street (North End),22.578,88.364,5,4,4
+Sealdah Station,22.5682,88.3741,4,6,7
+Sealdah (Market Area),22.569,88.376,3,6,6
+Burrabazar (Central),22.5774,88.3615,3,7,6
+Burrabazar (East),22.577,88.365,3,7,6
+Baghbazar,22.5935,88.365,5,4,4
+Baghbazar Ghat,22.595,88.362,5,3,3
+Hatibagan,22.588,88.368,5,5,5
+Rajabazar,22.577,88.375,4,6,5
+Entally,22.566,88.374,4,6,6
+Entally (East),22.565,88.378,4,6,5
+Phoolbagan,22.572,88.385,5,5,5
+Ultadanga,22.583,88.387,6,5,6
+Maniktala,22.587,88.38,5,5,5
+Maniktala (Market),22.586,88.381,4,5,5
+Girish Park,22.581,88.364,4,6,5
+Cossipore,22.602,88.369,4,5,5
+Cossipore (Arsenal Area),22.604,88.366,4,5,4
+Jorasanko,22.582,88.361,5,5,5
+Jorabagan,22.5845,88.361,5,5,5
+Pathuriaghata,22.583,88.36,5,4,4
+Ahiritola,22.588,88.363,5,4,4
+Ahiritola Ghat,22.5895,88.36,5,3,3
+Beadon Street,22.586,88.366,4,5,5
+Galiff Street,22.589,88.366,5,4,4
+Tala,22.596,88.368,4,5,5
+Tala Park,22.597,88.369,5,4,4
+Belgachia,22.599,88.373,5,5,5
+Sinthee,22.608,88.378,5,5,5
+Sinthee More,22.61,88.38,5,5,6
+Chitpur,22.588,88.359,4,5,5
+Chitpur (Lock Gate),22.591,88.358,4,5,5
+Nimtala Ghat,22.587,88.358,5,4,4
+Posta,22.579,88.3585,3,6,5
+Mechhua Bazaar,22.576,88.3605,3,6,5
+Dum Dum,22.6226,88.4188,5,5,6
+Dum Dum Airport,22.65,88.447,7,3,5
+Dum Dum Cantonment,22.635,88.425,6,3,4
+Dum Dum Junction,22.627,88.42,5,5,6
+Baranagar,22.636,88.376,5,5,5
+Baranagar (Riverside),22.638,88.372,4,5,4
+Belgharia,22.648,88.39,4,5,6
+Belgharia Station,22.65,88.388,4,5,6
+Lake Town,22.5935,88.3935,6,4,5
+Lake Town (Market),22.592,88.395,5,4,5
+Bangur Avenue,22.605,88.395,6,4,5
+Bangur Avenue (Block B),22.604,88.397,6,3,4
+Nagerbazar,22.61,88.4,5,5,6
+Kaikhali,22.625,88.435,6,4,6
+VIP Road (Keshtopur),22.606,88.42,6,4,6
+VIP Road (Baguiati),22.613,88.428,6,4,6
+Madhyamgram,22.67,88.455,5,4,6
+Barasat (Entry Point),22.705,88.47,5,5,6
+Birati,22.644,88.435,5,4,5
+Agarpara,22.656,88.385,4,5,5
+Kamarhati,22.665,88.375,4,5,5
+Khardah,22.72,88.38,4,5,5
+Salt Lake Sector I,22.578,88.405,8,2,3
+Salt Lake Sector I (AE Block),22.576,88.408,8,2,3
+Salt Lake Sector II,22.581,88.41,8,2,3
+Salt Lake Sector II (FE Block),22.58,88.412,8,2,3
+Salt Lake Sector III,22.581,88.415,8,2,3
+Salt Lake Sector IV,22.576,88.418,8,2,3
+Salt Lake Sector V (IT Hub),22.5726,88.4318,9,2,3
+Salt Lake Sector V (Module),22.574,88.428,9,2,3
+Karunamoyee,22.5828,88.4115,8,2,3
+Central Park (Salt Lake),22.579,88.415,9,1,2
+Nicco Park Area,22.5775,88.4175,8,2,3
+City Centre Salt Lake,22.583,88.419,8,2,3
+Nalban Food Park,22.5765,88.413,7,2,2
+Salt Lake Stadium Area,22.572,88.406,8,2,3
+Salt Lake Bypass (North),22.585,88.42,8,2,4
+Salt Lake Bypass (East),22.578,88.425,8,2,4
+New Town Action Area I,22.5958,88.4672,9,2,2
+New Town Action Area I (CC2),22.592,88.47,9,2,2
+New Town Action Area II,22.585,88.475,9,2,2
+New Town Action Area III,22.578,88.482,8,2,3
+New Town Eco Park Area,22.602,88.468,9,1,2
+Eco Park Main Gate,22.605,88.465,9,1,2
+Biswa Bangla Gate,22.596,88.461,9,2,2
+Nazrul Tirtha,22.599,88.464,9,1,2
+Rajarhat Chowmatha,22.605,88.455,7,3,4
+Rajarhat (Gopalpur),22.61,88.46,7,3,4
+New Town Bus Stand,22.588,88.472,8,2,3
+Unitech Area,22.583,88.469,8,2,3
+Mahishbathan,22.595,88.453,7,3,3
+Alipore,22.5326,88.339,8,3,3
+Alipore Zoo Area,22.538,88.334,7,2,3
+Alipore Court Area,22.5346,88.337,7,3,3
+National Library Area,22.529,88.339,8,2,2
+Kalighat,22.5205,88.343,6,4,5
+Kalighat Temple Area,22.5195,88.341,5,4,4
+Rashbehari Avenue (West),22.518,88.356,6,5,6
+Rashbehari Avenue (Crossing),22.5185,88.362,5,5,6
+Gariahat (Market Area),22.5195,88.3666,5,5,6
+Gariahat (Flyover),22.52,88.368,6,5,7
+Ballygunge,22.5285,88.3632,7,4,4
+Ballygunge Phari,22.526,88.364,6,5,6
+Ballygunge Station,22.525,88.366,6,4,5
+Ballygunge Circular Road,22.527,88.36,7,3,4
+Bhowanipore,22.533,88.349,7,4,4
+Bhowanipore (Market),22.532,88.351,6,4,5
+Hazra (Road),22.5275,88.35,6,4,5
+Hazra (T-Junction),22.528,88.352,6,4,5
+Elgin Road,22.537,88.351,8,3,4
+Sarat Bose Road,22.53,88.353,7,4,4
+Southern Avenue (West),22.514,88.358,7,3,4
+Southern Avenue (East),22.514,88.364,7,3,4
+Lansdowne,22.52,88.348,6,4,4
+Chetla,22.524,88.341,5,4,4
+Chetla (Hat),22.525,88.343,5,4,4
+Gol Park / Triangular Park,22.5215,88.362,7,3,4
+Deshapriya Park,22.5165,88.359,7,3,4
+Lake Gardens,22.508,88.362,6,3,4
+Jodhpur Park,22.506,88.36,6,3,4
+Golf Green,22.502,88.368,6,3,4
+Hindustan Park,22.513,88.3595,7,3,3
+Dover Lane,22.516,88.363,7,3,3
+Selimpur,22.508,88.354,5,4,4
+Jadavpur,22.499,88.3714,5,4,5
+Jadavpur 8B Bus Stand,22.496,88.37,5,5,6
+Jadavpur University Gate,22.497,88.371,6,3,4
+Jadavpur (Sulekha),22.493,88.366,5,4,5
+Tollygunge,22.4985,88.3476,5,5,5
+Tollygunge Metro / Phari,22.499,88.3445,6,5,6
+Tollygunge (Studio Area),22.501,88.342,5,4,4
+NSC Bose Road (South),22.495,88.347,5,5,5
+Kasba,22.512,88.382,5,5,5
+Kasba (Peerless Hospital),22.513,88.385,6,4,4
+Dhakuria,22.51,88.365,6,4,5
+Dhakuria (Bridge),22.511,88.368,6,4,5
+SP Mukherjee Road,22.515,88.347,6,4,5
+Prince Anwar Shah Road (West),22.501,88.365,6,4,5
+Prince Anwar Shah Road (East),22.5,88.375,5,4,5
+EM Bypass – Ultadanga Entry,22.585,88.39,7,3,7
+EM Bypass – Chingrighata,22.57,88.395,7,3,7
+EM Bypass – Science City,22.5402,88.3964,7,3,7
+Science City,22.541,88.399,8,2,4
+EM Bypass – Parama Island,22.53,88.394,7,3,8
+EM Bypass – Ruby Hospital,22.5163,88.3988,7,3,8
+Ruby General Hospital,22.517,88.401,7,3,5
+EM Bypass – Acropolis Mall,22.508,88.397,7,3,7
+EM Bypass – Mukundapur,22.489,88.399,6,4,7
+EM Bypass – Kamalgazi,22.463,88.406,6,4,7
+EM Bypass – Garia Station,22.468,88.4,6,4,7
+Santoshpur,22.499,88.395,5,4,5
+Anandapur,22.522,88.398,6,3,5
+Patuli,22.486,88.394,5,4,5
+Patuli (Floating Market),22.483,88.396,6,3,4
+Baishnabghata,22.481,88.392,5,4,5
+Narayantala,22.478,88.396,5,4,5
+Behala,22.489,88.3186,4,6,6
+Behala Chowrasta,22.482,88.315,4,6,6
+Behala (Manton),22.486,88.317,4,6,5
+Behala (Silpara),22.478,88.313,4,5,5
+Thakurpukur,22.46,88.316,4,5,5
+Thakurpukur (Hospital Area),22.458,88.318,5,4,5
+Joka,22.446,88.31,5,5,6
+Joka (IIM Area),22.438,88.306,6,3,5
+Joka Tram Depot,22.443,88.307,5,4,5
+Taratala,22.515,88.323,5,5,6
+Taratala (Industrial),22.513,88.32,4,5,5
+Diamond Harbour Rd (Mominpur),22.528,88.32,4,7,6
+Khidderpore,22.5367,88.3232,4,7,6
+Khidderpore Dock Area,22.538,88.32,4,7,5
+Metiabruz,22.522,88.305,3,7,5
+Metiabruz (East),22.523,88.31,3,7,5
+Garden Reach,22.533,88.315,4,6,5
+Garden Reach Shipyard Area,22.536,88.312,4,6,5
+Parnasree,22.473,88.31,5,5,5
+Parnasree Pally,22.47,88.312,5,5,5
+Sakherbazar,22.484,88.312,4,5,5
+Barisha,22.475,88.316,4,5,5
+Haridevpur,22.465,88.32,4,5,5
+Regent Park,22.476,88.305,5,5,5
+Maheshtala,22.505,88.296,3,6,5
+Budge Budge Entry,22.482,88.285,3,6,5
+Tangra,22.553,88.388,4,5,5
+Tangra (Leather Complex),22.555,88.391,3,5,5
+Topsia,22.545,88.386,5,5,6
+Topsia (Flyover),22.547,88.388,6,5,6
+Tiljala,22.538,88.381,4,6,5
+Tiljala (Station Area),22.536,88.38,4,6,5
+Picnic Garden,22.532,88.383,5,5,5
+Park Circus 7-Point Crossing,22.54,88.369,6,5,7
+Park Circus (Maidan),22.542,88.367,6,4,5
+Park Circus Station,22.541,88.372,5,5,6
+Maa Flyover (Park Circus),22.541,88.378,7,3,6
+Beckbagan,22.537,88.365,6,4,5
+Narkeldanga,22.575,88.38,4,6,5
+Narkeldanga (Main Rd),22.576,88.381,4,5,5
+Garia,22.473,88.383,5,5,6
+Garia Station Area,22.47,88.38,4,5,6
+Garia (Hat Area),22.471,88.385,4,5,5
+Baghajatin,22.488,88.378,5,4,5
+Baghajatin (Market),22.487,88.38,5,5,5
+Naktala,22.485,88.373,5,4,5
+Narendrapur,22.454,88.39,5,4,5
+Narendrapur (Ashram Area),22.456,88.392,6,3,4
+Sonarpur,22.439,88.403,4,5,5
+Sonarpur Station,22.438,88.401,4,5,5
+Rajpur,22.425,88.405,4,4,4
+Subhasgram,22.415,88.41,4,4,4
+Harinavi,22.445,88.396,4,5,5
+Baruipur (Entry),22.37,88.43,4,5,5
+Howrah Station West,22.5836,88.3429,5,7,7
+Howrah Station East,22.585,88.345,5,7,7
+Howrah Maidan,22.5877,88.337,5,6,6
+Shibpur,22.57,88.315,5,5,5
+Shibpur (IIEST Area),22.567,88.312,6,4,4
+Santragachi,22.572,88.299,5,5,5
+Santragachi (Station),22.573,88.301,5,5,5
+Kadamtala (Howrah),22.581,88.34,5,6,6
+Salkia,22.587,88.352,5,5,5
+Liluah,22.608,88.349,5,5,5
+Belur,22.613,88.354,5,4,4
+Belur Math,22.63,88.35,7,2,3
+Bally,22.645,88.345,4,5,5
+AJC Bose Road (West End),22.557,88.347,6,5,6
+AJC Bose Road (Moulali),22.561,88.362,6,5,6
+AJC Bose Road (East End),22.562,88.368,5,5,6
+CIT Road (West),22.567,88.376,5,5,5
+CIT Road (East),22.57,88.382,5,5,5
+BT Road (Shyambazar),22.594,88.373,5,5,6
+BT Road (Dunlop Bridge),22.638,88.387,5,5,7
+BT Road (Chiria More),22.62,88.382,5,5,6
+BT Road (Kamarhati),22.66,88.378,4,5,6
+Jessore Road (Nagerbazar),22.612,88.402,6,4,6
+Jessore Road (Airport),22.64,88.44,7,3,6
+Jessore Road (Madhyamgram),22.67,88.455,5,4,6
+APC Road (Shyambazar End),22.595,88.366,5,5,5
+Bidhan Sarani (Central),22.58,88.363,5,5,5
+Bidhan Sarani (College St End),22.576,88.364,5,5,5
+Raja SC Mullick Road,22.504,88.364,6,4,5
+DH Road (New Alipore),22.52,88.324,5,5,6
+DH Road (Behala),22.49,88.318,4,6,6
+DH Road (Joka),22.45,88.312,5,5,6
+Vidyasagar Setu (2nd Hooghly Bridge),22.549,88.331,8,2,5
+Howrah Bridge (Rabindra Setu),22.5851,88.3468,6,6,7
+Nivedita Setu,22.635,88.36,7,3,5
+Vivekananda Setu,22.626,88.356,6,4,5
+New Alipore,22.52,88.332,7,4,4
+New Alipore (Block A),22.518,88.328,7,3,4
+South City Mall Area,22.5,88.37,5,4,5
+Quest Mall Area (Park Street),22.547,88.353,8,4,4
+Exide Crossing,22.535,88.345,7,4,5
+Rabindra Sadan,22.539,88.3462,7,3,4
+Rabindra Sarobar,22.509,88.356,7,2,3
+Netaji Bhawan,22.536,88.35,7,3,4
+Jatin Das Park,22.524,88.349,6,3,4
+Mahanayak Uttam Kumar Metro,22.501,88.345,6,5,5
+Kavi Subhash (New Garia Metro),22.466,88.392,6,4,5
+Central Metro Station,22.561,88.357,7,5,5
+Esplanade Metro Hub,22.562,88.351,7,5,5
+Majerhat (Bridge Area),22.512,88.328,4,5,6
+Majerhat Station,22.51,88.33,5,5,5
+Minto Park / Shahid Minar,22.557,88.349,7,3,4
+Khanna Cinema (Gariahat),22.518,88.365,5,5,5
+Lake Market,22.515,88.357,5,4,4
+Golpark Post Office Crossing,22.52,88.361,7,4,5

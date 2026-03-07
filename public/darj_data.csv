@@ -1,0 +1,243 @@
+place_name,latitude,longitude,road_rating,crime_rating,accident_rating
+Chowrasta (The Mall),27.044,88.264,7,3,3
+Mall Road (West),27.0445,88.2625,7,3,3
+Mall Road (East),27.0435,88.266,7,3,3
+Observatory Hill,27.0455,88.2635,6,2,2
+Bhutia Busty Monastery,27.0465,88.262,5,2,2
+Nehru Road,27.043,88.265,6,3,3
+Laden La Road,27.0425,88.2655,6,3,4
+Gandhi Road (Upper),27.0415,88.2665,5,3,4
+Gandhi Road (Lower),27.04,88.267,5,4,4
+Clock Tower / Supermarket,27.0418,88.2645,6,4,4
+Darjeeling GPO,27.0428,88.2648,6,3,3
+Glenary's / Keventer's Area,27.0438,88.2642,7,3,3
+Windamere Hotel Area,27.046,88.261,6,2,2
+Planters' Club,27.045,88.263,7,2,2
+St. Andrew's Church,27.0455,88.265,6,2,2
+Raj Bhawan Area,27.047,88.2645,7,1,2
+North Point,27.051,88.265,5,2,3
+North Point (Japanese Temple),27.052,88.264,5,2,2
+Peace Pagoda Area,27.053,88.263,5,2,2
+Shrubbery Park,27.049,88.2655,6,2,2
+Birch Hill Park,27.05,88.262,5,2,2
+Darjeeling Ropeway (Upper),27.0485,88.26,5,2,3
+Aloobari,27.048,88.258,4,3,3
+Aloobari Monastery,27.0475,88.257,4,2,2
+Singamari,27.0505,88.268,5,3,4
+Singamari (Market),27.051,88.269,4,3,4
+Raj Bhawan Gate,27.0475,88.265,6,2,2
+St. Paul's School Road,27.038,88.266,5,2,3
+St. Paul's School Area,27.037,88.265,5,2,2
+Lebong Cart Road,27.039,88.272,4,2,5
+Lebong,27.037,88.274,4,2,4
+Lebong Race Course,27.036,88.275,5,2,3
+Chowk Bazaar,27.04,88.268,4,4,4
+Chowk Bazaar (Market),27.0395,88.2685,4,4,4
+Tenzing Norgay Road (Upper),27.041,88.263,6,3,4
+Tenzing Norgay Road (Middle),27.0385,88.261,5,3,5
+Tenzing Norgay Road (Lower),27.0365,88.259,4,3,5
+HMI (Himalayan Mountaineering),27.0395,88.2615,6,2,3
+Padmaja Naidu Zoo,27.04,88.26,6,2,2
+Snow Leopard Breeding Centre,27.041,88.259,6,1,2
+Lloyd Botanical Garden,27.0385,88.264,5,2,3
+Happy Valley Tea Estate,27.042,88.256,4,2,3
+Happy Valley (Gate),27.043,88.2575,5,2,3
+Toong Soong,27.0395,88.2555,3,2,4
+Darjeeling Railway Station,27.038,88.2625,5,3,3
+Darjeeling Toy Train Yard,27.0375,88.263,5,3,3
+Loreto Convent Area,27.0445,88.26,5,2,2
+Jalapahar,27.035,88.27,5,2,4
+Jalapahar Hill Road,27.034,88.271,4,2,5
+Rock Garden,27.03,88.272,4,2,5
+Ganga Maya Park,27.031,88.273,4,2,4
+Rangli Rangliot Tea Garden,27.028,88.275,3,2,5
+Dali Monastery Area,27.032,88.2695,4,2,3
+Tiger Hill,27.0122,88.283,5,1,5
+Tiger Hill (Approach Road),27.015,88.281,4,1,6
+Tiger Hill (View Point),27.0125,88.2835,5,1,4
+Senchal Lake,27.018,88.276,3,1,4
+Senchal Wildlife Sanctuary,27.02,88.278,3,1,4
+Batasia Loop,27.027,88.268,6,2,3
+Batasia Loop (War Memorial),27.0265,88.2675,6,2,3
+Ghoom (Hill Cart Road),27.023,88.263,5,3,5
+Ghoom Monastery,27.022,88.262,5,2,3
+Ghoom Railway Station,27.021,88.2625,5,2,4
+Ghoom (Market Area),27.0215,88.264,4,3,5
+Jorebunglow,27.018,88.26,4,3,5
+Jorebunglow (Bus Stand),27.017,88.261,4,3,5
+Jorebunglow (Market),27.0175,88.2605,4,3,5
+Sukhiapokhri,27.012,88.23,4,2,5
+Sukhiapokhri (Bazaar),27.0115,88.231,4,3,5
+Manebhanjyang,27.001,88.222,3,2,6
+Manebhanjyang (Sandakphu Gate),27.0005,88.2215,3,2,6
+Tonglu (Base Camp Area),26.99,88.21,2,1,6
+Sandakphu Approach (Lower),26.98,88.205,2,1,7
+Bijanbari,27.005,88.24,4,2,5
+Bijanbari (Market),27.0055,88.241,4,3,5
+Pulbazar,27.003,88.25,3,2,5
+Hill Cart Road (Darjeeling Exit),27.033,88.267,5,3,6
+Hill Cart Road (Below Ghoom),27.02,88.265,5,3,6
+Hill Cart Road (Sonada Approach),26.97,88.268,4,3,6
+Sonada,26.96,88.27,4,3,5
+Sonada (Market),26.961,88.271,4,3,5
+Sonada (Tea Estate Area),26.958,88.273,4,2,4
+Gayabari,26.94,88.278,3,2,6
+Tung,26.93,88.28,3,2,6
+Dilaram,26.92,88.275,4,2,5
+Mahanadi,26.91,88.28,4,2,5
+Pagla Jhora,26.9,88.285,3,2,6
+Tindharia,26.89,88.29,3,2,6
+Tindharia (Railway Workshop),26.889,88.291,3,2,5
+Kurseong (Town Center),26.881,88.279,5,3,4
+Kurseong (Hill Cart Road),26.88,88.278,5,3,5
+Kurseong Railway Station,26.8815,88.2785,5,3,4
+Kurseong (Market Area),26.8805,88.2795,4,4,4
+Kurseong (Bus Stand),26.882,88.28,5,3,4
+Dow Hill,26.875,88.283,4,2,5
+Dow Hill (Victoria Boys School),26.874,88.284,4,2,4
+Dow Hill Forest Road,26.873,88.285,3,2,5
+Eagle Craig,26.878,88.275,4,2,4
+Giddapahar Tea Estate,26.876,88.277,4,2,3
+Ambotia Tea Estate,26.885,88.282,4,2,3
+Makaibari Tea Estate,26.87,88.29,4,2,3
+Castleton Tea Estate Area,26.868,88.28,4,2,3
+Kurseong (St. Helen's School),26.883,88.281,5,2,3
+Chimney (Kurseong),26.877,88.276,4,2,4
+Netaji Subhas Home (Kurseong),26.8815,88.279,5,2,3
+Hill Cart Road (Below Kurseong),26.86,88.29,4,3,6
+Rohini,26.84,88.3,4,2,5
+Gayaganga,26.83,88.305,4,2,5
+Panighatta,26.81,88.32,4,3,5
+Sukna,26.79,88.34,5,3,5
+Sukna (Forest Area),26.785,88.335,5,2,4
+Rangtong,26.82,88.31,4,2,5
+Mirik Lake (Sumendu Lake),26.888,88.186,6,2,3
+Mirik (Town Center),26.889,88.187,5,3,3
+Mirik (Bus Stand),26.8895,88.1855,5,3,3
+Mirik (Market Area),26.8885,88.1875,5,3,3
+Mirik (Devi Sthan),26.891,88.189,4,2,3
+Mirik (Bokar Monastery),26.892,88.185,4,2,3
+Mirik (Orange Valley Tea Estate),26.885,88.183,4,2,3
+Mirik (Krishnanagar),26.887,88.19,4,2,3
+Mirik (Pashupati Nagar),26.886,88.184,4,3,4
+Mirik – Kurseong Road (Upper),26.883,88.21,3,2,6
+Mirik – Kurseong Road (Middle),26.88,88.23,3,2,6
+Mirik – Kurseong Road (Lower),26.879,88.25,3,2,6
+Thurbo Tea Estate (Mirik),26.89,88.182,4,2,3
+Gopaldhara Tea Estate,26.884,88.181,3,1,3
+Soureni (Mirik Road),26.875,88.22,3,2,5
+Siliguri Junction (Railway),26.71,88.428,6,5,6
+Siliguri Town Station,26.718,88.42,5,5,5
+Hill Cart Road (Siliguri Central),26.712,88.43,6,5,6
+Hill Cart Road (Sevoke More),26.72,88.435,6,4,7
+Sevoke Road,26.725,88.44,6,4,6
+Sevoke More (Junction),26.722,88.438,5,5,7
+Dagapur,26.73,88.42,5,4,5
+Pradhan Nagar,26.715,88.415,6,4,5
+Pradhan Nagar (Market Area),26.714,88.416,5,4,5
+City Centre (Siliguri),26.716,88.425,6,5,5
+Bidhan Road (Siliguri),26.713,88.423,5,5,5
+Bidhan Market,26.7135,88.424,5,5,5
+Station Feeder Road,26.711,88.429,5,5,6
+Khalpara,26.705,88.425,4,6,5
+Panitanki Road,26.708,88.42,5,5,5
+Matigara,26.685,88.4,5,4,6
+Matigara (Checkpost),26.683,88.395,5,4,6
+NJP Railway Station,26.698,88.398,6,4,5
+NJP Station Road,26.7,88.4,5,4,5
+Salugara,26.74,88.415,5,3,5
+Salugara Monastery,26.742,88.417,5,2,4
+Champasari,26.735,88.41,5,4,5
+Dudhia / Bengal Safari,26.75,88.41,5,2,4
+Bagdogra Airport,26.6812,88.3285,8,2,3
+Bagdogra (Town),26.685,88.335,5,4,5
+Bagdogra (Bypass Road),26.69,88.34,7,3,6
+Sukna (Siliguri Side),26.755,88.345,5,3,5
+Darjeeling More,26.708,88.405,5,4,6
+ISKON Temple Road,26.7145,88.39,6,3,4
+Naxalbari,26.68,88.22,4,4,5
+Siliguri (Ghoshpukur),26.72,88.405,5,4,5
+Siliguri (Dabgram),26.705,88.38,5,4,5
+Siliguri (Hakim Para),26.718,88.41,5,4,5
+Sevoke (Bridge Area),26.75,88.46,5,3,7
+Coronation Bridge / Sevoke Bridge,26.753,88.463,6,3,7
+Teesta Bazaar,26.76,88.465,4,3,6
+Rangpo Road (Entry NH10),26.755,88.47,5,3,7
+Kalijhora,26.77,88.47,3,2,7
+Siliguri Bypass (East),26.7,88.45,7,3,7
+Siliguri Bypass (West),26.71,88.36,7,3,6
+Siliguri Bypass (Matigara End),26.68,88.38,7,3,7
+Fulbari Checkpost (NH31),26.67,88.37,5,4,6
+Tinbatti More,26.71,88.415,5,5,7
+Saktigarh,26.705,88.435,5,4,6
+Margaret's Hope Tea Estate,27.005,88.265,4,1,3
+Glenburn Tea Estate,27.01,88.31,3,1,4
+Makaibari Tea Estate (Entry),26.871,88.289,4,1,3
+Arya Tea Estate,27.035,88.26,3,1,3
+Ging Tea Estate,27.028,88.258,3,1,3
+Badamtam Tea Estate,27.055,88.25,3,1,4
+Namring Tea Estate,26.945,88.275,3,1,3
+Tumsong Tea Estate,27.0,88.255,3,1,3
+Okayti Tea Estate,26.895,88.19,3,1,3
+Singell Tea Estate,26.97,88.275,3,1,3
+Puttabong Tea Estate,27.055,88.27,3,1,3
+Jungpana Tea Estate,26.915,88.272,3,1,4
+Tiger Hill Viewpoint,27.012,88.2835,5,1,4
+Kanchenjunga Viewpoint (North Point),27.0515,88.2645,5,2,3
+Lamahatta,27.035,88.32,4,1,4
+Lamahatta (Eco Park),27.036,88.321,5,1,3
+Takdah,27.045,88.335,4,2,4
+Takdah (Orchid Centre),27.046,88.336,4,1,3
+Tinchuley,27.038,88.34,3,1,5
+Chatakpur,27.025,88.31,3,1,5
+Lepchajagat,27.02,88.245,3,1,4
+Delo Hill (Kalimpong),27.06,88.48,4,2,4
+Dhotre (NH55A),26.95,88.265,3,2,6
+Pashok,27.015,88.33,3,1,5
+Rishihat / Risheehat,27.01,88.32,3,1,5
+Rohini Road (Kurseong Side),26.85,88.295,3,2,6
+Rohini Road (Siliguri Approach),26.83,88.31,4,2,6
+Pankhabari Road (Lower),26.76,88.35,4,3,6
+Pankhabari Road (Middle),26.78,88.33,3,2,6
+Pankhabari Road (Upper Kurseong),26.82,88.3,3,2,7
+Mirik–Siliguri Road (Upper),26.86,88.21,3,2,6
+Mirik–Siliguri Road (Middle),26.83,88.25,3,2,6
+Mirik–Siliguri Road (Lower),26.78,88.3,4,3,6
+Darjeeling–Kalimpong Rd (Teesta Valley),27.03,88.35,3,2,7
+Teesta Valley Road,27.02,88.36,3,2,7
+Lopchu,27.025,88.33,3,1,5
+NH10 (Sevoke-Kalimpong Split),26.76,88.468,5,3,7
+NH10 (Teesta Bridge),26.78,88.46,4,2,7
+Kalimpong (Town Center),27.066,88.471,5,3,4
+Kalimpong (Main Market / 10th Mile),27.067,88.472,5,3,4
+Kalimpong (Durpin Dara),27.062,88.465,4,2,4
+Kalimpong (Deolo Hill),27.065,88.48,4,2,4
+Kalimpong (Arts & Crafts),27.068,88.475,5,3,3
+Lava,27.09,88.67,3,1,5
+Lolegaon,27.05,88.58,3,1,5
+Rishop,27.07,88.66,3,1,5
+NH31 (Bagdogra–Siliguri),26.695,88.35,7,3,7
+NH31 (Matigara Section),26.68,88.39,6,4,7
+NH31 (Islampur Direction),26.67,88.35,6,4,6
+NH31 (Phansidewa),26.63,88.32,5,4,6
+NH31 (Naxalbari Approach),26.66,88.25,5,4,6
+Ghoom – Tiger Hill Road,27.018,88.275,4,2,5
+Ghoom – Sukhiapokhri Road,27.016,88.25,3,2,6
+Rangbull,27.01,88.27,3,2,5
+Pokhriabong,27.005,88.25,3,2,5
+Palmajua,26.99,88.255,3,2,5
+Maneybhanjang – Sandakphu Jeep Rd,26.97,88.205,2,1,8
+Tumling,26.968,88.2,2,1,7
+Tonglu Trek Route,26.98,88.208,2,1,7
+Singalila Ridge (Lower Point),26.96,88.195,2,1,7
+New Jalpaiguri (NJP) Bypass,26.69,88.38,6,3,6
+Kadamtala (Siliguri),26.705,88.41,5,4,5
+Burdwan Road (Siliguri),26.71,88.44,5,4,5
+Milanpally,26.725,88.425,5,3,4
+Uttorayan Township,26.718,88.395,7,3,4
+Kawakhali,26.715,88.43,5,4,5
+Phulbari,26.66,88.35,4,4,5
+Khaprail,26.71,88.375,5,4,5
+Mall Road (Siliguri),26.716,88.42,6,4,5
+Ashighar More,26.7,88.41,5,4,6
+Hashimara Entry Point,26.63,88.52,5,3,5

@@ -1,0 +1,33 @@
+day,date,time,activity_title,type,location,latitude,longitude,duration,description,notes
+1,2026-03-10,08:00,Check-in at Hotel,hotel,The Oberoi Grand - 15 Jawaharlal Nehru Rd,22.5568,88.3534,60 min,Luxury heritage hotel in the heart of Kolkata,Book in advance; central location near Park Street
+1,2026-03-10,09:30,Breakfast at Flurys,restaurant,Flurys - 18 Park Street,22.5516,88.3522,45 min,Iconic 1927 Swiss confectionery and breakfast spot,Try the multigrain toast and scrambled eggs
+1,2026-03-10,11:00,Victoria Memorial,attraction,Victoria Memorial Hall - Queens Way,22.5448,88.3426,120 min,Magnificent marble monument built in memory of Queen Victoria; museum inside,Entry fee ~Rs 30 for Indians; Rs 500 for foreigners
+1,2026-03-10,13:30,Lunch at Mocambo,restaurant,Mocambo - 25B Park Street,22.5516,88.3522,60 min,Classic Kolkata Continental restaurant established in 1956,Must try devilled crab and prawn cocktail
+1,2026-03-10,15:00,Eden Gardens,attraction,Eden Gardens Cricket Stadium,22.5647,88.3433,60 min,Iconic cricket ground and national heritage stadium,Check if a match is scheduled
+1,2026-03-10,16:30,Maidan Walk & Prinsep Ghat,attraction,Prinsep Ghat - Strand Road,22.5436,88.3356,60 min,Scenic riverside area with colonial arch and boats,Evening is most scenic; great for photos
+1,2026-03-10,19:00,Evening at Park Street,attraction,Park Street,22.5516,88.3522,60 min,Stroll Kolkata's famous dining and shopping street,Very lively in the evenings
+1,2026-03-10,20:00,Dinner at Peter Cat,restaurant,Peter Cat - 18A Park Street,22.5516,88.3522,90 min,Kolkata institution famous for Chelo Kebab,Reservations recommended
+2,2026-03-11,08:30,Breakfast at hotel,restaurant,The Oberoi Grand,22.5568,88.3534,45 min,Buffet breakfast at the hotel,
+2,2026-03-11,10:00,Indian Museum,attraction,Indian Museum - 27 Jawaharlal Nehru Rd,22.5579,88.3527,150 min,Oldest and largest museum in India; established 1814,Closed on Mondays; entry Rs 30
+2,2026-03-11,12:30,Kumartuli (Potter's Quarter),attraction,Kumartuli - Shyambazar,22.5998,88.3639,90 min,Traditional neighbourhood of idol makers and clay artisans,Best visited before Durga Puja season
+2,2026-03-11,14:00,Lunch at Bhojohori Manna,restaurant,Bhojohori Manna - Elgin Road,22.5367,88.3594,60 min,Authentic Bengali home-style food,Must try kosha mangsho and ilish macher jhol
+2,2026-03-11,15:30,Howrah Bridge & Mullick Ghat,attraction,Howrah Bridge,22.5851,88.3468,60 min,Iconic cantilever bridge over the Hooghly River; Mullick Ghat flower market below,Go early morning for flower market; Rabindra Setu view is stunning
+2,2026-03-11,17:00,Belur Math,attraction,Belur Math - Belur,22.6269,88.3564,90 min,Headquarters of Ramakrishna Mission on the Hooghly riverbank,Very peaceful; closes at 5:30 PM
+2,2026-03-11,19:30,Princep Ghat Sunset Cruise,attraction,Prinsep Ghat - Strand Road,22.5436,88.3356,60 min,Ferry ride on the Hooghly River,Available till 7 PM approx; Rs 10 per person
+2,2026-03-11,21:00,Dinner at 6 Ballygunge Place,restaurant,6 Ballygunge Place,22.5248,88.366,90 min,Award-winning authentic Bengali cuisine,Try dab chingri and mishti doi
+3,2026-03-12,07:00,Kalighat Kali Temple (early morning),attraction,Kalighat Temple - Kalighat,22.5213,88.3432,90 min,One of the 51 Shakti Peethas; very sacred Hindu temple,Very crowded; mornings less so; leave valuables at hotel
+3,2026-03-12,09:30,Birla Planetarium,attraction,Birla Planetarium - Chowringhee South,22.5459,88.3484,90 min,Largest planetarium in Asia,Shows in Bengali and English; check show timings
+3,2026-03-12,11:30,New Market Shopping,attraction,New Market (Hogg Market) - Lindsay Street,22.5585,88.3545,120 min,Sprawling 1874 market with over 2000 shops; clothing spices handicrafts,Bargaining is standard; beware of touts
+3,2026-03-12,14:00,Lunch at Nizam's,restaurant,Nizam's Restaurant - New Market area,22.5629,88.3503,60 min,Home of the original Kolkata Kathi Roll since 1932,Try the egg chicken kathi roll
+3,2026-03-12,15:30,College Street (Boi Para),attraction,College Street - College Street,22.578,88.363,90 min,World's largest second-hand book market; Coffee House nearby,Great for old and rare books
+3,2026-03-12,17:00,Coffee House,restaurant,Coffee House - 15 Bankim Chatterjee Street,22.578,88.363,60 min,Iconic 1876 intellectual café famous among Bengali literati,Order the cutlet and cold coffee
+3,2026-03-12,19:00,Tagore's Jorasanko Thakur Bari,attraction,Jorasanko Thakur Bari - 6 Dwarakanath Tagore Lane,22.5824,88.3641,60 min,Ancestral home of Rabindranath Tagore; now a museum,Closes at 5:30 PM — visit before coffee if needed
+3,2026-03-12,20:30,Dinner at Arsalan,restaurant,Arsalan - Park Circus,22.5395,88.3673,90 min,Legendary Kolkata biryani restaurant,The mutton biryani is unmissable
+4,2026-03-13,08:00,Breakfast at Dolly's Tea Shop,restaurant,Dolly's Tea Shop - Dakshinapan,22.4858,88.3647,45 min,Charming tea boutique with 100 varieties of tea and snacks,Try Darjeeling first flush
+4,2026-03-13,09:30,Science City,attraction,Science City - Eastern Metropolitan Bypass,22.5351,88.3954,150 min,India's largest science center with planetarium and Virtual Reality,Great for kids and adults alike
+4,2026-03-13,12:00,Marble Palace,attraction,Marble Palace - Muktaram Babu Street North,22.5917,88.3573,90 min,19th-century mansion with priceless art collection,Prior permission required; contact tourism office
+4,2026-03-13,14:00,Lunch at Oh Calcutta,restaurant,Oh Calcutta - Forum Mall,22.5229,88.3631,75 min,Refined modern Bengali cuisine,Try chingri malaikari and sandesh mousse
+4,2026-03-13,15:30,Dakshineswar Kali Temple,attraction,Dakshineswar Kali Temple,22.6546,88.3578,90 min,Famous riverside Kali temple associated with Ramakrishna Paramahamsa,Busy on weekends; take Metro to Dakshineswar
+4,2026-03-13,17:30,South Park Street Cemetery,attraction,South Park Street Cemetery,22.544,88.355,45 min,Haunting 18th-century British-era cemetery; colonial history,Free entry; a hidden gem of Kolkata
+4,2026-03-13,19:30,Check-out preparation & souvenirs,transport,New Market / Airport shuttle,22.5585,88.3545,60 min,Pick up souvenirs — muslin saree mishti doi clay idols dokra jewelry,Budget Rs 500-2000 for souvenirs
+4,2026-03-13,21:00,Departure dinner at Oudh 1590,restaurant,Oudh 1590 - Rawdon Street,22.534,88.356,90 min,Lucknowi and Awadhi fine dining restaurant with old-world decor,Advance booking essential; try galouti kebab
