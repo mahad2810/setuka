@@ -67,7 +67,7 @@ setuka/
 ├── authority-dashboard/            # Python backend + Streamlit command-center
 │   ├── app/
 │   │   ├── main.py                 # Streamlit entry point + live tracking map
-│   │   ├── models/                 # Trained ML models (XGBoost safety scorer, scaler)
+│   │   ├── models/                
 │   │   └── pages/
 │   │       ├── 1_Crowd_Safety_Scoring.py       # DBSCAN clustering & heatmaps
 │   │       ├── 2_AI_Recommendations.py         # LLM-powered crowd & patrol advice
@@ -132,7 +132,7 @@ setuka/
 | Tourist App | Next.js 14, TypeScript, Tailwind CSS, shadcn/ui |
 | Maps | Leaflet.js, GeoPandas, Folium |
 | Authority Dashboard | Python, Streamlit, FastAPI |
-| ML / AI | XGBoost, Isolation Forest, DBSCAN (scikit-learn), Groq LLM, Google Gemini, LangChain |
+| ML / AI | Isolation Forest, DBSCAN (scikit-learn), Groq LLM, Google Gemini, LangChain |
 | Blockchain | Solidity, Polygon (Mumbai testnet), ethers.js |
 | Hardware | LoRa SX1262, Quectel EC200U GPS, SpO₂ sensor, Arduino/ESP32 |
 | Auth | NextAuth.js |
