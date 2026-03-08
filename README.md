@@ -32,7 +32,7 @@ A Next.js Progressive Web App (installable on Android/iOS) that gives each trave
 
 ### Layer 2 — IoT LoRa Wearable (Hardware)
 A custom-built wearable (9-phase hardware build) with:
-- **Sensors:** LoRa SX1262, GPS (Quectel EC200U), SpO₂ / pulse oximeter.
+- **Sensors:** LoRa SX1262, GPS (Quectel EC200U), SpO₂ / pulse oximeter, GPS, GNSS, OLED display.
 - **Triple-Mode SOS Transmission:**
   1. Direct Cloud — when internet is available.
   2. SMS — via GSM in partial-signal areas.
