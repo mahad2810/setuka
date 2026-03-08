@@ -2,7 +2,8 @@
 
 > **Hackathon Project** · IoT + AI-Driven Tourist Safety Ecosystem for Northeast India
 
-🎥 **Demo:** [Watch the prototype](https://drive.google.com/file/d/1IelTJ_iL28HlAaDKf4RTseadTMvYKnAx/view?usp=sharing) &nbsp;|&nbsp; 🔧 **Hardware Build Log:** [9-Phase Progress](./hardware-Progress.txt)
+🎥 **Demo:** [Watch the prototype](https://drive.google.com/file/d/1IelTJ_iL28HlAaDKf4RTseadTMvYKnAx/view?usp=sharing) &nbsp;|&nbsp; 
+🔧 **Hardware Build Log:** [9-Phase Progress](./hardware-Progress.txt)
 
 ---
 
