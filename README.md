@@ -1,5 +1,5 @@
 # Setuka
-## Smart Tourist Safety — Powered by AI, Secured by Blockchain
+## Your Digital Guardian On Every Journey
 
 > Every tourist deserves to travel without fear. Setuka is a full-stack platform that
 > wraps every phase of a tourist's journey — from trip planning to on-ground
