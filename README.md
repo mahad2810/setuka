@@ -136,6 +136,7 @@ setuka/
 | Blockchain | Solidity, Polygon (Mumbai testnet), ethers.js |
 | Hardware | LoRa SX1262, Quectel EC200U GPS, SpO₂ sensor, Arduino/ESP32 |
 | Auth | NextAuth.js |
+| Communication | Twilio |
 
 ---
 
